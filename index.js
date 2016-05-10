@@ -3,6 +3,7 @@ var async = require('async-chainable');
 var fs = require('fs');
 var handlebars = require('handlebars');
 var revman = require('revman');
+var tidy = require('htmltidy2').tidy;
 
 module.exports = function(options, finish) {
 	var settings = _.defaults(options, {
@@ -61,6 +62,14 @@ module.exports = function(options, finish) {
 		.then('result', function(next) {
 			var template = handlebars.compile(this.grammar);
 			next(null, template(this.revman));
+		})
+		// }}}
+		// Tidy HTML {{{
+		.then('result', function(next) {
+			tidy(this.result, {
+				doctype: 'html5',
+				indent: true,
+			}, next)
 		})
 		// }}}
 		.end(function(err) {

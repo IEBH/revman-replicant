@@ -6,6 +6,7 @@
   "dependencies": {
     "async-chainable": "^1.7.15",
     "handlebars": "^4.0.5",
+    "htmltidy2": "^0.1.4",
     "lodash": "^4.12.0",
     "revman": "0.0.1"
   },
