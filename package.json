@@ -1,0 +1,24 @@
+{
+  "name": "replicant",
+  "version": "0.0.0",
+  "description": "RevMan abstract auto-generator",
+  "main": "index.js",
+  "dependencies": {
+    "async-chainable": "^1.7.15",
+    "handlebars": "^4.0.5",
+    "lodash": "^4.12.0",
+    "revman": "0.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "revman"
+  ],
+  "author": "Matt Carter <m@ttcarter.com> (https://github.com/hash-bang)",
+  "license": "MIT"
+}
