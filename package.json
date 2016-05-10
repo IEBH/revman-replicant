@@ -1,7 +1,7 @@
 {
-  "name": "replicant",
+  "name": "revman-replicant",
   "version": "0.0.0",
-  "description": "RevMan abstract auto-generator",
+  "description": "Auto-generate randomized abstract style content from RevMan files",
   "main": "index.js",
   "dependencies": {
     "async-chainable": "^1.7.15",
@@ -17,9 +17,17 @@
   "scripts": {
     "test": "mocha"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CREBP/revman-replicant.git"
+  },
   "keywords": [
     "revman"
   ],
   "author": "Matt Carter <m@ttcarter.com> (https://github.com/hash-bang)",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CREBP/revman-replicant/issues"
+  },
+  "homepage": "https://github.com/CREBP/revman-replicant#readme"
 }
