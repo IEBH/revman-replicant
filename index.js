@@ -27,13 +27,24 @@ module.exports = function(options, finish) {
 		// }}}
 		// Setup handlebars helpers {{{
 		.then(function(next) {
-			handlebars.registerHelper('ifMultiple', function(data, node) {
-				var comparitor = _.isArray(data) ? data.length : data;
-				return (comparitor > 1) ? node.fn(this) : '';
+			handlebars.registerHelper('ifNone', function(data, node) {
+				var comparitor;
+				if (!data) {
+					comparitor = 0;
+				} else if (_.isArray(data)) {
+					comparitor = data.length;
+				} else {
+					comparitor = data;
+				}
+				return (!comparitor) ? node.fn(this) : '';
 			});
 			handlebars.registerHelper('ifSingle', function(data, node) {
 				var comparitor = _.isArray(data) ? data.length : data;
 				return (comparitor == 1) ? node.fn(this) : '';
+			});
+			handlebars.registerHelper('ifMultiple', function(data, node) {
+				var comparitor = _.isArray(data) ? data.length : data;
+				return (comparitor > 1) ? node.fn(this) : '';
 			});
 
 			handlebars.registerHelper('pick', function(node) {
