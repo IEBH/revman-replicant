@@ -28,10 +28,12 @@ module.exports = function(options, finish) {
 		// Setup handlebars helpers {{{
 		.then(function(next) {
 			handlebars.registerHelper('ifMultiple', function(data, node) {
-				return (data.length > 1) ? node.fn(this) : '';
+				var comparitor = _.isArray(data) ? data.length : data;
+				return (comparitor > 1) ? node.fn(this) : '';
 			});
 			handlebars.registerHelper('ifSingle', function(data, node) {
-				return (data.length == 1) ? node.fn(this) : '';
+				var comparitor = _.isArray(data) ? data.length : data;
+				return (comparitor == 1) ? node.fn(this) : '';
 			});
 
 			handlebars.registerHelper('pick', function(node) {
