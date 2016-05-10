@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<LANGUAGE>
+	<NAME name="English"/>
+	<HAL_MARKERS ack="Parts of this review were generated using RevMan HAL v 4.0. You can find more information about RevMan " end="End of HAL-generated text" start="Start of HAL-generated text"/>
+	<REVIEW>
+		<INTRO>
+			<PAR1 V0="For this review we generated X comparisons." V1="Studies relevant to this review fall into X comparisons." V2="We categorised studies into X comparisons."/>
+			<PAR1S V0="For this review we generated a single comparison." V1="Studies relevant to this review fall into a single comparison."/>
+			<PAR2 V0="In total there are X relevant randomised studies." V1="We identified X randomised trials from which it is possible to extract numerical data." V2="We were able to extract numerical data from X randomised studies."/>
+			<PAR2S V0="There is a single relevant trial." V1="We identified only one trial from which it is possible to extract numerical data." V2="We were able to extract numerical data from a single randomised study."/>
+		</INTRO>
+		<COMPARISON LEVEL="COMPARISON">
+			<INTRO>
+				<PAR1 V0="This comparison has X outcomes." V1="This particular comparison has X outcomes." V2="In this comparison, there were X outcomes."/>
+				<PAR1S V0="This comparison has a single outcome." V1="This particular comparison has only one outcome."/>
+			</INTRO>
+			<OUTCOME>
+				<INTRO>
+					<PAR1 V0="We identified X studies relevant to this outcome" V1="For this outcome we found X relevant studies"/>
+					<PAR1S V0="We identified one study relevant to this outcome" V1="For this outcome we found a single study"/>
+					<PAR2 V0=", the data from which we divided into X subgroups in accordance with our protocol" V1=" and categorised data into X subgroups (in keeping with our protocol)"/>
+					<PAR3 V0=", with a total of X people." V1=" (total n=X)." V2=" involving X participants."/>
+					<PAR4 V0="There are no subgroups in this outcome." V1="This outcome has no subgroups."/>
+				</INTRO>
+				<OTHER_OUTCOME>
+					<PAR1 V0="These continuous data"/>
+					<PAR1 V0=" (X RCTs)" V1=", from X trials,"/>
+					<PAR1 V0=" (X RCT)" V1=", from a single trial,"/>
+					<PAR1 V0="were too skewed to report in a graphic." V1="had such large standard deviations as to suggest that analysis within RevMan would be inadvisable."/>
+					<PAR1 V0="Therefore, we present them in a" V1="We, therefore, report these data in a"/>
+					<LINK V0="Other data table."/>
+					<PAR5 V0="These data were presented in Other data tables because TO BE FILLED BY REVIEWER."/>
+				</OTHER_OUTCOME>
+				<HETEROGENEITY>
+					<IMPORTANT>
+						<PAR V0="This outcome had important levels of heterogeneity YY." V1="For this outcome heterogeneity is high YY."/>
+					</IMPORTANT>
+					<MODERATE>
+						<PAR V0="This outcome had moderate levels of heterogeneity YY." V1="For this outcome heterogeneity is moderately high YY."/>
+					</MODERATE>
+				</HETEROGENEITY>
+				<STATISTICAL_SIGNIFICANCE>
+					<YES>
+						<PAR V0="We found evidence of a clear difference between T1 and T2 YY." V1="For this outcome, we did find evidence that T1 was clearly different in its effects compared with T2 YY."/>
+					</YES>
+					<NO>
+						<PAR V0="There was not a clear difference between T1 and T2 YY." V1="We did not find evidence of a clear difference between the two treatments in this comparison YY."/>
+					</NO>
+				</STATISTICAL_SIGNIFICANCE>
+				<SUBGROUPS>
+					<INTRO>
+						<PAR V0="We found X trials to be relevant to this subgroup" V1="There are X relevant trials in this subgroup"/>
+						<PARSSS V0="We found one trial to be relevant to this subgroup" V1="There is a single trial in this subgroup"/>
+						<PAR V0=", which included a total of X participants." V1=", with a total of X people." V2=" (total n=X)."/>
+					</INTRO>
+					<HETEROGENEITY>
+						<IMPORTANT>
+							<PAR V0="This subgroup had important levels of heterogeneity YY." V1="For this outcome heterogeneity is high YY."/>
+						</IMPORTANT>
+						<MODERATE>
+							<PAR V0="This subgroup had moderate levels of heterogeneity YY." V1="For this subgroup heterogeneity is moderately high YY."/>
+						</MODERATE>
+					</HETEROGENEITY>
+					<STATISTICAL_SIGNIFICANCE>
+						<YES>
+							<PAR V0="We found evidence of a clear difference between T1 and T2 within this subgroup YY." V1="For this outcome, within this subgroup, we did find evidence that T1 was clearly different in its effects compared with T2 YY."/>
+						</YES>
+						<NO>
+							<PAR V0="There was not a clear difference between T1 and T2 within this subgroup YY." V1="For this subgroup, we did not find evidence of a clear difference between the two treatments YY."/>
+						</NO>
+					</STATISTICAL_SIGNIFICANCE>
+				</SUBGROUPS>
+			</OUTCOME>
+		</COMPARISON>
+	</REVIEW>
+	<RESULTS_OF_SEARCH>
+		<PAR1 V0="Details of the search results are illustrated in the PRISMA table" V1="The PRISMA table shows results of our search"/>
+		<PAR2 V0="In the original search we found Z papers reports that were potentially relevant. After removing duplicates and the clearly irrelevant material, we inspected full text of all remaining reports. We then grouped these into 'studies' where several of the reports referred to the same trial." V1="Initially we identified Z papers that seemed relevant to this review. After removing duplicates and the clearly irrelevant material, we inspected full text of all remaining reports. We then grouped these into 'studies' where several of the reports referred to the same trial."/>
+		<PAR3 V0="Of these, we excluded X studies (Y reports) because they did not meet our inclusion criteria." V1="We had to exclude X (Y reports) of these studies."/>
+		<PAR4 V0="Finally, after careful scrutiny, we were left with X publications reporting Y studies." V1="So, at the end of the review we have identified X reports of Y trials."/>
+		<PAR5 V0="Finally, after careful scrutiny, we were left with X publications reporting a single study." V1="So, at the end of the review we have identified X reports of one trial."/>
+		<PAR6 V0="Finally, after careful scrutiny, we were left with one publication reporting a single study." V1="So, at the end of the review we have identified a single report of one trial."/>
+		<PAR7 V0="Finally, after careful scrutiny, we were left with no reports at all. We identified no relevant studies." V1="So, at the end of the review we have identified not a single report of a trial in this area."/>
+	</RESULTS_OF_SEARCH>
+	<ABSTRACT>
+		<ABS_OBJECTIVES V0="To review the effects of X."/>
+		<ABS_SEARCH_STRATEGY V0="We searched the Cochrane Schizophrenia Group's Trials Register (last update search D/M/Y) which is based on regular searches of CINAHL, BIOSIS, AMED, EMBASE, PubMed, MEDLINE, PsycINFO and registries of Clinical Trials. There is no language, date, document type, or publication status limitations for inclusion of records in the register."/>
+		<ABS_SELECTION_CRITERIA V0="All randomised clinical trials focusing on X."/>
+		<ABS_DATA_COLLECTION V0="We extracted data independently. For binary outcomes, we calculated risk ratio (RR) and its 95% confidence interval (CI), on an intention-to-treat basis. For continuous data, we estimated the mean difference (MD) between groups and its 95% CI. We employed a fixed-effect model for analyses. We assessed risk of bias for included studies and created 'Summary of findings' tables using GRADE."/>
+		<ABS_RESULTS>
+			<PAR1 V0="We found data relevant to X comparisons."/>
+			<PAR2 V0="When T1 is compared with T2:"/>
+			<PAR3 V0="For the outcome of X there was no clear difference YY."/>
+			<PAR4 V0="For the outcome of X there was a clear difference YY."/>
+			<PAR5 V0="We found no usable data for the important outcomes of YY." V1="For the key outcomes of YY we found no usable data."/>
+		</ABS_RESULTS>
+	</ABSTRACT>
+</LANGUAGE>

@@ -1,0 +1,62 @@
+{{! Introduction }}
+{{#pick}}
+	{{#ifMultiple analysesAndData.comparison}}
+		For this review we generated {{analysesAndData.comparison.length}} comparisons.
+		{{analysesAndData.comparison.length}} comparisons were used in this review.
+	{{/ifMultiple}}
+	{{#ifSingle analysesAndData.comparison}}
+		For this review we generated a single comparison.
+		A single comparison was used in this review.
+	{{/ifSingle}}
+{{/pick}}
+
+
+{{! Comparisons }}
+{{! FIXME: Not sure what the formatting should be like here - headings for each comparison? }}
+{{#each analysesAndData.comparison}}
+
+	{{! Comparison ~ Intro }}
+	<h1>{{name}}</h1>
+	{{#ifSingle dichOutcome}}
+		This comparison has a single outcome.
+	{{/ifSingle}}
+	{{#ifMultiple dichOutcome}}
+		This comparison has {{dichOutcome.length}} outcomes.
+	{{/ifMultiple}}
+
+
+	{{! Comparison ~ Outcomes }}
+	{{#each dichOutcome}}
+
+		{{#ifSingle studies}}
+			We identified one study relevant to this outcome
+		{{/ifSingle}}
+		{{#ifMultiple studies}}
+			We identified {{studies}} studies relevant to this outcome
+		{{/ifMultiple}}
+
+		{{! FIXME: HAL grammar has no value for exactly one subgroup - is this correct? }}
+		{{#ifNone dichSubgroup}}
+			{{#pick}}
+				There are no subgroups in this outcome.
+				This outcome has no subgroups.
+			{{/pick}}
+		{{/ifNone}}
+		{{#ifMultiple dichSubgroup}}
+			{{#pick}}
+				, the data from which we divided into {{dichSubgroup}} subgroups in accordance with our protocol
+				and categorised data into {{dichSubgroup}} subgroups (in keeping with our protocol)
+			{{/pick}}
+		{{/ifMultiple}}
+
+
+		{{! FIXME: No idea how to compute the number of people in a subgroup}}
+		{{#pick}}
+			, with a total of X people.
+			(total n=X).
+			involving X participants.
+		{{/pick}}
+
+	{{/each}}
+
+{{/each}}
