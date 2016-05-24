@@ -47,6 +47,32 @@ module.exports = function(options, finish) {
 				var comparitor = _.isArray(data) ? data.length : data;
 				return (comparitor > 1) ? node.fn(this) : '';
 			});
+			handlebars.registerHelper('ifValue', function(left, conditional, right, node) {
+				console.log('CHECK', left, conditional, right);
+				switch (conditional) {
+					case '=':
+					case '==':
+					case 'eq':
+						return left == right ? node.fn(this) : '';
+					case '<':
+					case 'lt':
+						return left < right ? node.fn(this) : '';
+					case '<=':
+					case 'lte':
+						return left <= right ? node.fn(this) : '';
+					case '>':
+					case 'gt':
+						return left > right ? node.fn(this) : '';
+					case '>=':
+					case 'gte':
+						return left >= right ? node.fn(this) : '';
+					case 'between': // Form: `{{ifValue FIELD 'between' '10 and 20'}}{{#/ifValue}}`
+						var bits = right.split(/\s+AND\s+/i);
+						return (left > bits[0] && left < bits[1]) ? node.fn(this) : '';
+					default:
+						throw new Error('Unknown ifValue conditional');
+				}
+			});
 
 			handlebars.registerHelper('pick', function(node) {
 				return _(node.fn(this))
