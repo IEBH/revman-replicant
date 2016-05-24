@@ -42,7 +42,6 @@
 					We identified {{studies}} studies relevant to this outcome
 				{{/ifMultiple}}
 
-				{{!-- FIXME: HAL grammar has no value for exactly one subgroup - is this correct? --}}
 				{{#ifNone dichSubgroup}}
 					{{#pick}}
 						. There are no subgroups in this outcome.
@@ -51,22 +50,31 @@
 				{{/ifNone}}
 				{{#ifMultiple dichSubgroup}}
 					{{#pick}}
-						, the data from which we divided into {{dichSubgroup}} subgroups in accordance with our protocol
-						and categorised data into {{dichSubgroup}} subgroups (in keeping with our protocol)
+						, the data from which we divided into {{dichSubgroup.length}} subgroups in accordance with our protocol
+						and categorised data into {{dichSubgroup.length}} subgroups (in keeping with our protocol)
 					{{/pick}}
 				{{/ifMultiple}}
 
-				{{!-- FIXME: No idea how to compute the number of people in a subgroup --}}
-				{{!-- FIXME: Should this be nested inside one of the above? Looks like the end of a sentence rather than a new one --}}
 				{{#pick}}
-					, with a total of X people.
-					(total n=X).
-					involving X participants.
+					, with a total of {{participants}} people.
+					(total n={{participants}}).
+					involving {{participants}} participants.
 				{{/pick}}
+
+
+				{{#ifValue i2 'gt' 70}}
+					{{#pick}}
+						This outcome had important levels of heterogeneity {{i2}}.
+						For this outcome heterogeneity is high {{i2}}.
+					{{/pick}}
+				{{/ifValue}}
+				{{#ifValue i2 'between' '30 and 70'}}
+					{{#pick}}
+						This outcome had moderate levels of heterogeneity {{i2}}.
+						For this outcome heterogeneity is moderately high {{i2}}.
+					{{/pick}}
+				{{/ifValue}}
 			</p>
-
-
-			{{!-- FIXME: Translation upto line 25 of original XML --}}
 
 		{{/each}}
 
