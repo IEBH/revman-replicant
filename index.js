@@ -48,7 +48,6 @@ module.exports = function(options, finish) {
 				return (comparitor > 1) ? node.fn(this) : '';
 			});
 			handlebars.registerHelper('ifValue', function(left, conditional, right, node) {
-				console.log('CHECK', left, conditional, right);
 				switch (conditional) {
 					case '=':
 					case '==':
