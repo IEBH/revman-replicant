@@ -1,0 +1,13 @@
+[
+	{
+		"file": "hal-en.html",
+		"name": "RevMan-HAL (English)",
+		"description": "Rewrite of the RevMan-HAL specification into RevMan-Replicant",
+		"authors": [
+			"Clive Adams <clive.adams@nottingham.ac.uk>",
+			"Matt Carter <matt_carter@bond.edu.au>",
+			"Elaine Beller <ebeller@bond.edu.au>"
+		],
+		"url": "http://schizophrenia.cochrane.org/revman-hal-v4"
+	}
+]
