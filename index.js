@@ -21,10 +21,12 @@ module.exports = function(options, finish) {
 		// }}}
 		// Read in all file contents {{{
 		.parallel({
-			revman: next => revman.parseFile(settings.revman, next),
 			grammar: next => fs.readFile(settings.grammar, 'utf-8', next),
+			revman: function(next) {
+				if (_.isObject(settings.revman)) return next(null, settings.revman); // Already an object
+				revman.parseFile(settings.revman, next);
+			},
 		})
-		// }}}
 		// }}}
 		// Setup handlebars helpers {{{
 		.then(function(next) {
