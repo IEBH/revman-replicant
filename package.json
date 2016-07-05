@@ -1,6 +1,6 @@
 {
   "name": "revman-replicant",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Auto-generate randomized abstract style content from RevMan files",
   "main": "index.js",
   "dependencies": {
@@ -8,6 +8,7 @@
     "handlebars": "^4.0.5",
     "htmltidy2": "^0.1.4",
     "lodash": "^4.12.0",
+    "mersenne-twister": "^1.0.1",
     "revman": "^1.2.0"
   },
   "devDependencies": {

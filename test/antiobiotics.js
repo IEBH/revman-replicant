@@ -55,3 +55,27 @@ describe('Replicant - generate abstract for antibiotics-for-sore-throat (as an o
 		expect(data).to.be.a.string;
 	});
 });
+
+describe('Replicant - same output with same seed', function() {
+	[0, 1, 666, 1024, 999].forEach(function(seed) {
+		it('should return the same data with seed ' + seed, function(finish) {
+			replicant({
+				seed: seed,
+				revman: './test/data/antibiotics-for-sore-throat.rm5',
+				grammar: './grammars/hal-en.html',
+			}, function(err, res1) {
+				expect(err).to.be.not.ok;
+
+				replicant({
+					seed: seed,
+					revman: './test/data/antibiotics-for-sore-throat.rm5',
+					grammar: './grammars/hal-en.html',
+				}, function(err, res2) {
+					expect(err).to.be.not.ok;
+					expect(res1).to.equal(res2);
+					finish();
+				});
+			});
+		});
+	});
+});

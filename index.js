@@ -2,6 +2,7 @@ var _ = require('lodash');
 var async = require('async-chainable');
 var fs = require('fs');
 var handlebars = require('handlebars');
+var mersenneTwister = require('mersenne-twister');
 var revman = require('revman');
 var tidy = require('htmltidy2').tidy;
 
@@ -9,7 +10,10 @@ module.exports = function(options, finish) {
 	var settings = _.defaults(options, {
 		revman: null, //  to the revman file to use
 		grammar: null, //  to the grammar file to use
+		seed: undefined, // Random seed value to use (to get predictable output)
 	});
+
+	var randomGenerator = new mersenneTwister(settings.seed);
 
 	async()
 		// Sanity checks {{{
@@ -76,11 +80,13 @@ module.exports = function(options, finish) {
 			});
 
 			handlebars.registerHelper('pick', function(node) {
-				return _(node.fn(this))
+				var options = _(node.fn(this))
 					.split(/\s*\n\s*/)
 					.filter()
 					.map(i => _.trim(i))
-					.sample();
+					.value();
+
+				return options[Math.round(randomGenerator.random() * options.length)];
 			});
 			next();
 		})
