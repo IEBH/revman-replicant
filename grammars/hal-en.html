@@ -3,8 +3,8 @@
 	<p>
 		{{#pick}}
 			{{#ifMultiple analysesAndData.comparison}}
-				For this review we generated {{analysesAndData.comparison.length}} comparisons.
-				{{analysesAndData.comparison.length}} comparisons were used in this review.
+				For this review we generated {{formatNumber analysesAndData.comparison.length}} comparisons.
+				{{formatNumber analysesAndData.comparison.length}} comparisons were used in this review.
 			{{/ifMultiple}}
 			{{#ifSingle analysesAndData.comparison}}
 				For this review we generated a single comparison.
@@ -64,27 +64,27 @@
 
 				{{#ifValue i2 'between' '30 and 70'}}
 					{{#pick}}
-						This outcome had moderate levels of heterogeneity {{i2}}.
-						For this outcome heterogeneity is moderately high {{i2}}.
+						This outcome had moderate levels of heterogeneity {{formatHeterogeneity i2}}.
+						For this outcome heterogeneity is moderately high {{formatHeterogeneity i2}}.
 					{{/pick}}
 				{{/ifValue}}
 				{{#ifValue i2 'gt' 70}}
 					{{#pick}}
-						This outcome had important levels of heterogeneity {{i2}}.
-						For this outcome heterogeneity is high {{i2}}.
+						This outcome had important levels of heterogeneity {{formatHeterogeneity i2}}.
+						For this outcome heterogeneity is high {{formatHeterogeneity i2}}.
 					{{/pick}}
 				{{/ifValue}}
 
 				{{#ifValue p 'lt' 0.05}}
 					{{#pick}}
-						We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}} {{pText}}.
-						For this outcome, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}} {{pText}}.
+						We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}} {{formatP p}}.
+						For this outcome, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}} {{formatP p}}.
 					{{/pick}}
 				{{/ifValue}}
 				{{#ifValue p 'gte' 0.05}}
 					{{#pick}}
-						There was not a clear difference between {{groupLabel1}} and {{groupLabel2}} {{pText}}.
-						We did not find evidence of a clear difference between the two treatments in this comparison {{pText}}.
+						There was not a clear difference between {{groupLabel1}} and {{groupLabel2}} {{formatP p}}.
+						We did not find evidence of a clear difference between the two treatments in this comparison {{formatP p}}.
 					{{/pick}}
 				{{/ifValue}}
 			</p>
@@ -114,27 +114,27 @@
 
 				{{#ifValue i2 'between' '30 and 70'}}
 					{{#pick}}
-						This subgroup had moderate levels of heterogeneity {{i2}}.
-						For this subgroup heterogeneity is moderately high {{i2}}.
+						This subgroup had moderate levels of heterogeneity {{formatHeterogeneity i2}}.
+						For this subgroup heterogeneity is moderately high {{formatHeterogeneity i2}}.
 					{{/pick}}
 				{{/ifValue}}
 				{{#ifValue i2 'gt' 70}}
 					{{#pick}}
-						This subgroup had important levels of heterogeneity {{i2}}.
-						For this subgroup heterogeneity is high {{i2}}.
+						This subgroup had important levels of heterogeneity {{formatHeterogeneity i2}}.
+						For this subgroup heterogeneity is high {{formatHeterogeneity i2}}.
 					{{/pick}}
 				{{/ifValue}}
 
 				{{#ifValue p 'lt' 0.05}}
 					{{#pick}}
-						We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup {{pText}}.
+						We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup {{formatP p}}.
 						For this outcome, within this subgroup, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}} {{pText}}.
 					{{/pick}}
 				{{/ifValue}}
 				{{#ifValue p 'gte' 0.05}}
 					{{#pick}}
-						There was not a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup {{pText}}.
-						For this subgroup, we did not find evidence of a clear difference between the two treatments {{pText}}.
+						There was not a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup {{formatP p}}.
+						For this subgroup, we did not find evidence of a clear difference between the two treatments {{formatP p}}.
 					{{/pick}}
 				{{/ifValue}}
 			</p>
