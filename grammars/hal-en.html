@@ -62,19 +62,83 @@
 				{{/pick}}
 
 
-				{{#ifValue i2 'gt' 70}}
-					{{#pick}}
-						This outcome had important levels of heterogeneity {{i2}}.
-						For this outcome heterogeneity is high {{i2}}.
-					{{/pick}}
-				{{/ifValue}}
 				{{#ifValue i2 'between' '30 and 70'}}
 					{{#pick}}
 						This outcome had moderate levels of heterogeneity {{i2}}.
 						For this outcome heterogeneity is moderately high {{i2}}.
 					{{/pick}}
 				{{/ifValue}}
+				{{#ifValue i2 'gt' 70}}
+					{{#pick}}
+						This outcome had important levels of heterogeneity {{i2}}.
+						For this outcome heterogeneity is high {{i2}}.
+					{{/pick}}
+				{{/ifValue}}
+
+				{{#ifValue p 'lt' 0.05}}
+					{{#pick}}
+						We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}} {{pText}}.
+						For this outcome, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}} {{pText}}.
+					{{/pick}}
+				{{/ifValue}}
+				{{#ifValue p 'gte' 0.05}}
+					{{#pick}}
+						There was not a clear difference between {{groupLabel1}} and {{groupLabel2}} {{pText}}.
+						We did not find evidence of a clear difference between the two treatments in this comparison {{pText}}.
+					{{/pick}}
+				{{/ifValue}}
 			</p>
+
+			{{#each dichSubgroup}}
+			<h3>{{name}}</h3>
+			<p>
+
+				{{#ifValue dichData.length 'eq' 1}}
+					{{#pick}}
+						We found one trial to be relevant to this subgroup
+						There is a single trial in this subgroup
+					{{/pick}}
+				{{/ifValue}}
+				{{#ifValue dichData.length 'gt' 1}}
+					{{#pick}}
+						We found {{dichData.length}} trials to be relevant to this subgroup
+						There are {{dichData.length}} relevant trials in this subgroup
+					{{/pick}}
+				{{/ifValue}}
+
+				{{#pick}}
+					, which included a total of {{participants}} participants.
+					, with a total of {{participants}} people.
+					(total n={{participants}}).
+				{{/pick}}
+
+				{{#ifValue i2 'between' '30 and 70'}}
+					{{#pick}}
+						This subgroup had moderate levels of heterogeneity {{i2}}.
+						For this subgroup heterogeneity is moderately high {{i2}}.
+					{{/pick}}
+				{{/ifValue}}
+				{{#ifValue i2 'gt' 70}}
+					{{#pick}}
+						This subgroup had important levels of heterogeneity {{i2}}.
+						For this subgroup heterogeneity is high {{i2}}.
+					{{/pick}}
+				{{/ifValue}}
+
+				{{#ifValue p 'lt' 0.05}}
+					{{#pick}}
+						We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup {{pText}}.
+						For this outcome, within this subgroup, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}} {{pText}}.
+					{{/pick}}
+				{{/ifValue}}
+				{{#ifValue p 'gte' 0.05}}
+					{{#pick}}
+						There was not a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup {{pText}}.
+						For this subgroup, we did not find evidence of a clear difference between the two treatments {{pText}}.
+					{{/pick}}
+				{{/ifValue}}
+			</p>
+			{{/each}}
 
 		{{/each}}
 
