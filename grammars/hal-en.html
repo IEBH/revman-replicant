@@ -25,7 +25,7 @@
 				This comparison has a single outcome.
 			{{/ifSingle}}
 			{{#ifMultiple dichOutcome}}
-				This comparison has {{dichOutcome.length}} outcomes.
+				This comparison has {{formatNumber dichOutcome.length}} outcomes.
 			{{/ifMultiple}}
 		</p>
 
@@ -39,7 +39,7 @@
 					We identified one study relevant to this outcome
 				{{/ifSingle}}
 				{{#ifMultiple studies}}
-					We identified {{studies}} studies relevant to this outcome
+					We identified {{formatNumber studies}} studies relevant to this outcome
 				{{/ifMultiple}}
 
 				{{#ifNone dichSubgroup}}
@@ -50,15 +50,15 @@
 				{{/ifNone}}
 				{{#ifMultiple dichSubgroup}}
 					{{#pick}}
-						, the data from which we divided into {{dichSubgroup.length}} subgroups in accordance with our protocol
-						and categorised data into {{dichSubgroup.length}} subgroups (in keeping with our protocol)
+						, the data from which we divided into {{formatNumber dichSubgroup.length}} subgroups in accordance with our protocol
+						and categorised data into {{formatNumber dichSubgroup.length}} subgroups (in keeping with our protocol)
 					{{/pick}}
 				{{/ifMultiple}}
 
 				{{#pick}}
-					, with a total of {{participants}} people.
-					(total n={{participants}}).
-					involving {{participants}} participants.
+					, with a total of {{formatNumber participants}} people.
+					(total n={{formatNumber participants}}).
+					involving {{formatNumber participants}} participants.
 				{{/pick}}
 
 
@@ -101,15 +101,15 @@
 				{{/ifValue}}
 				{{#ifValue dichData.length 'gt' 1}}
 					{{#pick}}
-						We found {{dichData.length}} trials to be relevant to this subgroup
-						There are {{dichData.length}} relevant trials in this subgroup
+						We found {{formatNumber dichData.length}} trials to be relevant to this subgroup
+						There are {{formatNumber dichData.length}} relevant trials in this subgroup
 					{{/pick}}
 				{{/ifValue}}
 
 				{{#pick}}
-					, which included a total of {{participants}} participants.
-					, with a total of {{participants}} people.
-					(total n={{participants}}).
+					, which included a total of {{formatNumber participants}} participants.
+					, with a total of {{formatNumber participants}} people.
+					(total n={{formatNumber participants}}).
 				{{/pick}}
 
 				{{#ifValue i2 'between' '30 and 70'}}

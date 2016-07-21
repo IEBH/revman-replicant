@@ -34,6 +34,7 @@ module.exports = function(options, finish) {
 		// }}}
 		// Setup handlebars helpers {{{
 		.then(function(next) {
+			// Conditionals {{{
 			handlebars.registerHelper('ifNone', function(data, node) {
 				var comparitor;
 				if (!data) {
@@ -78,7 +79,6 @@ module.exports = function(options, finish) {
 						throw new Error('Unknown ifValue conditional');
 				}
 			});
-
 			handlebars.registerHelper('pick', function(node) {
 				var options = _(node.fn(this))
 					.split(/\s*\n\s*/)
@@ -88,6 +88,14 @@ module.exports = function(options, finish) {
 
 				return options[Math.round(randomGenerator.random() * options.length)];
 			});
+			// }}}
+
+			// Formatters {{{
+			handlebars.registerHelper('formatNumber', function(data) {
+				return data ? data.toLocaleString() : 'FIXME: UNDEFINED!';
+			});
+			// }}}
+
 			next();
 		})
 		// }}}
