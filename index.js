@@ -86,7 +86,7 @@ module.exports = function(options, finish) {
 					.map(i => _.trim(i))
 					.value();
 
-				return options[Math.round(randomGenerator.random() * options.length)];
+				return options[Math.floor(randomGenerator.random() * options.length)];
 			});
 			// }}}
 
