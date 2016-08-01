@@ -101,13 +101,14 @@ module.exports = function(options, finish) {
 			});
 			handlebars.registerHelper('formatP', function(data) {
 				if (_.isUndefined(data)) return 'FIXME:UNDEFINED!';
-				return
+				return (
 					data <= 0.00001 ? 'P < 0.00001' :
 					data <= 0.0001 ? 'P < 0.0001' :
 					data <= 0.001 ? 'P < 0.001' :
 					data <= 0.01 ? 'P < 0.01' :
 					data <= 0.05 ? 'P < 0.05' :
-					'P = ' + data;
+					'P = ' + data
+				);
 			});
 			// }}}
 
