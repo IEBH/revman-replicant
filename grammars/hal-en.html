@@ -35,22 +35,26 @@
 			<h2>{{name}}</h2>
 			<p>
 				{{#ifSingle studies}}
-					We identified one study relevant to this outcome
+					We identified one study relevant to this outcome.
 				{{/ifSingle}}
 				{{#ifMultiple studies}}
-					We identified {{formatNumber studies}} studies relevant to this outcome
+					We identified {{formatNumber studies}} studies relevant to this outcome.
 				{{/ifMultiple}}
 
 				{{#ifNone dichSubgroup}}
 					{{#pick}}
-						. There are no subgroups in this outcome.
-						. This outcome has no subgroups.
+						There are no subgroups in this outcome
+						This outcome has no subgroups
 					{{/pick}}
 				{{/ifNone}}
+				{{#ifSingle dichSubgroup}}
+					This outcome contained a single subgroup
+					A single subgroup was used in this outcome
+				{{/ifSingle}}
 				{{#ifMultiple dichSubgroup}}
 					{{#pick}}
-						, the data from which we divided into {{formatNumber dichSubgroup.length}} subgroups in accordance with our protocol
-						and categorised data into {{formatNumber dichSubgroup.length}} subgroups (in keeping with our protocol)
+						We divided the data into {{formatNumber dichSubgroup.length}} subgroups in accordance with our protocol
+						We categorised data into {{formatNumber dichSubgroup.length}} subgroups (in keeping with our protocol)
 					{{/pick}}
 				{{/ifMultiple}}
 
@@ -76,16 +80,17 @@
 
 				{{#ifValue p 'lt' 0.05}}
 					{{#pick}}
-						We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}} {{formatP p}}.
-						For this outcome, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}} {{formatP p}}.
+						We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}},
+						For this outcome, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}},
 					{{/pick}}
 				{{/ifValue}}
 				{{#ifValue p 'gte' 0.05}}
 					{{#pick}}
-						There was not a clear difference between {{groupLabel1}} and {{groupLabel2}} {{formatP p}}.
-						We did not find evidence of a clear difference between the two treatments in this comparison {{formatP p}}.
+						There was not a clear difference between {{groupLabel1}} and {{groupLabel2}},
+						We did not find evidence of a clear difference between the two treatments in this comparison,
 					{{/pick}}
 				{{/ifValue}}
+				{{formatLowerCase effectMeasureText}} was {{formatNumber effectSize 3}} ({{formatNumber ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP p}}).
 			</p>
 
 			{{#each dichSubgroup}}
@@ -126,16 +131,18 @@
 
 				{{#ifValue p 'lt' 0.05}}
 					{{#pick}}
-						We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup {{formatP p}}.
-						For this outcome, within this subgroup, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}} {{pText}}.
+						We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup
+						For this outcome, within this subgroup, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}}
 					{{/pick}}
 				{{/ifValue}}
 				{{#ifValue p 'gte' 0.05}}
 					{{#pick}}
-						There was not a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup {{formatP p}}.
-						For this subgroup, we did not find evidence of a clear difference between the two treatments {{formatP p}}.
+						There was not a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup
+						For this subgroup, we did not find evidence of a clear difference between the two treatments
 					{{/pick}}
 				{{/ifValue}}
+				{{formatLowerCase effectMeasureText}} was {{formatNumber effectSize 3}} ({{formatNumber ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP p}}).
+				FIXME:CHECK
 			</p>
 			{{/each}}
 
