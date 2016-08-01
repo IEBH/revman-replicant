@@ -95,9 +95,9 @@ module.exports = function(options, finish) {
 				if (_.isUndefined(data)) return 'FIXME:UNDEFINED!';
 				return data.toLowerCase();
 			});
-			handlebars.registerHelper('formatHeterogeneity', function(data) {
+			handlebars.registerHelper('formatNumber', function(data, dp) {
 				if (_.isUndefined(data)) return 'FIXME:UNDEFINED!';
-				return _.round(data, 6).toLocaleString();
+				return _.round(data, dp).toLocaleString();
 			});
 			handlebars.registerHelper('formatP', function(data) {
 				if (_.isUndefined(data)) return 'FIXME:UNDEFINED!';
