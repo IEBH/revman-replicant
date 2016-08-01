@@ -3,6 +3,7 @@
 		"file": "hal-en.html",
 		"name": "RevMan-HAL (English)",
 		"description": "Rewrite of the RevMan-HAL specification into RevMan-Replicant",
+		"language": "EN",
 		"authors": [
 			"Clive Adams <clive.adams@nottingham.ac.uk>",
 			"Matt Carter <matt_carter@bond.edu.au>",
