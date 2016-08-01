@@ -91,9 +91,9 @@ module.exports = function(options, finish) {
 			// }}}
 
 			// Formatters {{{
-			handlebars.registerHelper('formatNumber', function(data) {
+			handlebars.registerHelper('formatLowerCase', function(data) {
 				if (_.isUndefined(data)) return 'FIXME:UNDEFINED!';
-				return data.toLocaleString();
+				return data.toLowerCase();
 			});
 			handlebars.registerHelper('formatHeterogeneity', function(data) {
 				if (_.isUndefined(data)) return 'FIXME:UNDEFINED!';
