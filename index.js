@@ -125,6 +125,7 @@ module.exports = function(options, finish) {
 			tidy(this.result, {
 				doctype: 'html5',
 				indent: true,
+				wrap: 0,
 			}, next)
 		})
 		// }}}
