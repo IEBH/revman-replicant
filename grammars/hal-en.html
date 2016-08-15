@@ -20,17 +20,17 @@
 		{{!-- Comparison ~ Intro --}}
 		<h1>{{name}}</h1>
 		<p>
-			{{#ifSingle dichOutcome}}
+			{{#ifSingle outcome}}
 				This comparison has a single outcome.
 			{{/ifSingle}}
-			{{#ifMultiple dichOutcome}}
-				This comparison has {{formatNumber dichOutcome.length}} outcomes.
+			{{#ifMultiple outcome}}
+				This comparison has {{formatNumber outcome.length}} outcomes.
 			{{/ifMultiple}}
 		</p>
 
 
 		{{!-- Comparison ~ Outcomes --}}
-		{{#each dichOutcome}}
+		{{#each outcome}}
 
 			<h2>{{name}}</h2>
 			<p>
@@ -41,20 +41,20 @@
 					We identified {{formatNumber studies}} studies relevant to this outcome.
 				{{/ifMultiple}}
 
-				{{#ifNone dichSubgroup}}
+				{{#ifNone subgroup}}
 					{{#pick}}
 						There are no subgroups in this outcome
 						This outcome has no subgroups
 					{{/pick}}
 				{{/ifNone}}
-				{{#ifSingle dichSubgroup}}
+				{{#ifSingle subgroup}}
 					This outcome contained a single subgroup
 					A single subgroup was used in this outcome
 				{{/ifSingle}}
-				{{#ifMultiple dichSubgroup}}
+				{{#ifMultiple subgroup}}
 					{{#pick}}
-						We divided the data into {{formatNumber dichSubgroup.length}} subgroups in accordance with our protocol
-						We categorised data into {{formatNumber dichSubgroup.length}} subgroups (in keeping with our protocol)
+						We divided the data into {{formatNumber subgroup.length}} subgroups in accordance with our protocol
+						We categorised data into {{formatNumber subgroup.length}} subgroups (in keeping with our protocol)
 					{{/pick}}
 				{{/ifMultiple}}
 
@@ -93,22 +93,23 @@
 				{{formatLowerCase effectMeasureText}} was {{formatNumber effectSize 3}} ({{formatNumber ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP p}}).
 			</p>
 
-			{{#each dichSubgroup}}
+			{{!-- outcome has subgroups --}}
+			{{#each subgroup}}
 			<h3>{{name}}</h3>
 			<p>
 
-				{{#ifValue dichData.length 'eq' 1}}
+				{{#ifSingle study}}
 					{{#pick}}
 						We found one trial to be relevant to this subgroup
 						There is a single trial in this subgroup
 					{{/pick}}
-				{{/ifValue}}
-				{{#ifValue dichData.length 'gt' 1}}
+				{{/ifSingle}}
+				{{#ifMultiple study}}
 					{{#pick}}
-						We found {{formatNumber dichData.length}} trials to be relevant to this subgroup
-						There are {{formatNumber dichData.length}} relevant trials in this subgroup
+						We found {{formatNumber study.length}} trials to be relevant to this subgroup
+						There are {{formatNumber study.length}} relevant trials in this subgroup
 					{{/pick}}
-				{{/ifValue}}
+				{{/ifMultiple}}
 
 				{{#pick}}
 					, which included a total of {{formatNumber participants}} participants.

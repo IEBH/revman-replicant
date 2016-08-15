@@ -1,6 +1,6 @@
 {
   "name": "revman-replicant",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Auto-generate randomized abstract style content from RevMan files",
   "main": "index.js",
   "dependencies": {
