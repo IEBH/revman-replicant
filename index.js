@@ -34,6 +34,18 @@ module.exports = function(options, finish) {
 		// }}}
 		// Setup handlebars helpers {{{
 		.then(function(next) {
+			// Array Utilities {{{
+			handlebars.registerHelper('pick', function(node) {
+				var options = _(node.fn(this))
+					.split(/\s*\n\s*/)
+					.filter()
+					.map(i => _.trim(i))
+					.value();
+
+				return options[Math.floor(randomGenerator.random() * options.length)];
+			});
+			// }}}
+
 			// Conditionals {{{
 			handlebars.registerHelper('ifNone', function(data, node) {
 				var comparitor;
@@ -78,15 +90,6 @@ module.exports = function(options, finish) {
 					default:
 						throw new Error('Unknown ifValue conditional');
 				}
-			});
-			handlebars.registerHelper('pick', function(node) {
-				var options = _(node.fn(this))
-					.split(/\s*\n\s*/)
-					.filter()
-					.map(i => _.trim(i))
-					.value();
-
-				return options[Math.floor(randomGenerator.random() * options.length)];
 			});
 			// }}}
 
