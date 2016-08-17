@@ -34,10 +34,10 @@
 
 			<h2>{{name}}</h2>
 			<p>
-				{{#ifSingle studies}}
+				{{#ifSingle study}}
 					We identified one study relevant to this outcome.
 				{{/ifSingle}}
-				{{#ifMultiple studies}}
+				{{#ifMultiple study}}
 					We identified {{formatNumber studies}} studies relevant to this outcome.
 				{{/ifMultiple}}
 
@@ -142,8 +142,7 @@
 						For this subgroup, we did not find evidence of a clear difference between the two treatments
 					{{/pick}}
 				{{/ifValue}}
-				{{formatLowerCase effectMeasureText}} was {{formatNumber effectSize 3}} ({{formatNumber ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP p}}).
-				FIXME:CHECK
+				{{formatLowerCase ../effectMeasureText}} was {{formatNumber effectSize 3}} ({{formatNumber ../ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP ../p}}).
 			</p>
 			{{/each}}
 
