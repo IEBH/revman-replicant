@@ -132,6 +132,13 @@ module.exports = function(options, finish) {
 				wrap: 0,
 			}, next)
 		})
+		.then('result', function(next) {
+			// Misc text tidyups
+			next(null, this.result
+				// Remove spaces before commas
+				.replace(/\s+,\s/g, ', ')
+			);
+		})
 		// }}}
 		.end(function(err) {
 			if (err) return finish(err);
