@@ -115,6 +115,28 @@ module.exports = function(options, finish) {
 			});
 			// }}}
 
+			// Debugging utlities {{{
+			/**
+			* Output the raw data object as a <pre/> enclosed JSON object
+			* @example
+			* // Dump the current Handlebars object
+			* {{dump this}}
+			*/
+			handlebars.registerHelper('dump', function(data) {
+				return '<pre>' + JSON.stringify(data, null, '\t') + '</pre>';
+			});
+
+			/**
+			* Similar to `dump` but only return the keys within the object as an array
+			* @example
+			* // Dump the current Handlebars object keys
+			* {{dump this}}
+			*/
+			handlebars.registerHelper('dumpKeys', function(data) {
+				return '<pre>' + JSON.stringify(_.keys(data)) + '</pre>';
+			});
+			// }}}
+
 			next();
 		})
 		// }}}
