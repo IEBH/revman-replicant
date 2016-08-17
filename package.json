@@ -10,7 +10,7 @@
     "lodash": "^4.15.0",
     "mersenne-twister": "^1.1.0",
     "mocha": "^3.0.2",
-    "revman": "^1.4.0"
+    "revman": "^1.4.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
