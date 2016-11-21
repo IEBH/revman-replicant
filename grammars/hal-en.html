@@ -48,8 +48,10 @@
 					{{/pick}}
 				{{/ifNone}}
 				{{#ifSingle subgroup}}
-					This outcome contained a single subgroup
-					A single subgroup was used in this outcome
+					{{#pick}}
+						This outcome contained a single subgroup
+						A single subgroup was used in this outcome
+					{{/pick}}
 				{{/ifSingle}}
 				{{#ifMultiple subgroup}}
 					{{#pick}}
