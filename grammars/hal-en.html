@@ -1,16 +1,18 @@
 <body>
 	{{!-- Introduction --}}
 	<p>
-		{{#pick}}
-			{{#ifMultiple analysesAndData.comparison}}
+		{{#ifMultiple analysesAndData.comparison}}
+			{{#pick}}
 				For this review we generated {{formatNumber analysesAndData.comparison.length}} comparisons.
 				{{formatNumber analysesAndData.comparison.length}} comparisons were used in this review.
-			{{/ifMultiple}}
-			{{#ifSingle analysesAndData.comparison}}
+			{{/pick}}
+		{{/ifMultiple}}
+		{{#ifSingle analysesAndData.comparison}}
+			{{#pick}}
 				For this review we generated a single comparison.
 				A single comparison was used in this review.
-			{{/ifSingle}}
-		{{/pick}}
+			{{/pick}}
+		{{/ifSingle}}
 	</p>
 
 
