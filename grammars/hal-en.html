@@ -37,16 +37,23 @@
 			<h2>{{name}}</h2>
 			<p>
 				{{#ifSingle study}}
-					We identified one study relevant to this outcome.
+					We identified one study relevant to this outcome
 				{{/ifSingle}}
 				{{#ifMultiple study}}
-					We identified {{formatNumber studies}} studies relevant to this outcome.
+					We identified {{formatNumber studies}} studies relevant to this outcome
 				{{/ifMultiple}}
+
+				{{#pick}}
+					, with a total of {{formatNumber participants}} participants.
+					, involving a total of {{formatNumber participants}} participants.
+					(total n={{formatNumber participants}}).
+					involving {{formatNumber participants}} participants.
+				{{/pick}}
 
 				{{#ifSingle subgroup}}
 					{{#pick}}
-						This outcome contained a single subgroup
-						A single subgroup was used in this outcome
+						This outcome contained a single subgroup.
+						A single subgroup was used in this outcome.
 					{{/pick}}
 				{{/ifSingle}}
 				{{#ifMultiple subgroup}}
@@ -56,23 +63,19 @@
 					{{/pick}}
 				{{/ifMultiple}}
 
-				{{#pick}}
-					, with a total of {{formatNumber participants}} people.
-					(total n={{formatNumber participants}}).
-					involving {{formatNumber participants}} participants.
-				{{/pick}}
-
 
 				{{#ifValue i2 'between' '30 and 70'}}
 					{{#pick}}
-						This outcome had moderate levels of heterogeneity {{formatNumber i2 2}}.
-						For this outcome heterogeneity is moderately high {{formatNumber i2 2}}.
+						This outcome had moderate levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
+						This outcome had moderate levels of heterogeneity, I<sup>2</sup> = {{formatNumber i2 2}}%.
+						For this outcome heterogeneity is moderately high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}%.
 					{{/pick}}
 				{{/ifValue}}
 				{{#ifValue i2 'gt' 70}}
 					{{#pick}}
-						This outcome had important levels of heterogeneity {{formatNumber i2 2}}.
-						For this outcome heterogeneity is high {{formatNumber i2 2}}.
+						This outcome had important levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
+						This outcome had important levels of heterogeneity, I<sup>2</sup> = {{formatNumber i2 2}}%.
+						For this outcome heterogeneity is high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}%.
 					{{/pick}}
 				{{/ifValue}}
 
@@ -89,7 +92,7 @@
 					{{/pick}}
 				{{/ifValue}}
 
-				{{formatLowerCase effectMeasureText}} was {{formatNumber effectSize 3}} ({{formatNumber ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP p}}).
+				{{formatLowerCase effectMeasureText}} was {{formatNumber effectSize 2}} ({{formatNumber ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP p}}).
 			</p>
 
 			{{!-- outcome has subgroups --}}
@@ -118,14 +121,14 @@
 
 				{{#ifValue i2 'between' '30 and 70'}}
 					{{#pick}}
-						This subgroup had moderate levels of heterogeneity {{formatNumber i2 2}}.
-						For this subgroup heterogeneity is moderately high {{formatNumber i2 2}}.
+						This subgroup had moderate levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
+						For this subgroup heterogeneity is moderately high (I<sup>2</sup> = {{formatNumber i2 2}}%).
 					{{/pick}}
 				{{/ifValue}}
 				{{#ifValue i2 'gt' 70}}
 					{{#pick}}
-						This subgroup had important levels of heterogeneity {{formatNumber i2 2}}.
-						For this subgroup heterogeneity is high {{formatNumber i2 2}}.
+						This subgroup had important levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
+						For this subgroup heterogeneity is high (I<sup>2</sup> = {{formatNumber i2 2}}%).
 					{{/pick}}
 				{{/ifValue}}
 
@@ -141,7 +144,7 @@
 						For this subgroup, we did not find evidence of a clear difference between the two treatments
 					{{/pick}}
 				{{/ifValue}}
-				{{formatLowerCase ../effectMeasureText}} was {{formatNumber effectSize 3}} ({{formatNumber ../ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP ../p}}).
+				{{formatLowerCase ../effectMeasureText}} was {{formatNumber effectSize 2}} ({{formatNumber ../ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP ../p}}).
 			</p>
 			{{/each}}
 
