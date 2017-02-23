@@ -110,7 +110,7 @@ module.exports = function(options, finish) {
 					data <= 0.001 ? 'P < 0.001' :
 					data <= 0.01 ? 'P < 0.01' :
 					data <= 0.05 ? 'P < 0.05' :
-					'P = ' + data
+					'P = ' + data // FIXME: Round to 2 dp (0.248869 => 0.25)
 				);
 			});
 			// }}}
