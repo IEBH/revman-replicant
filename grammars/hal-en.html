@@ -30,14 +30,12 @@
 			{{/ifMultiple}}
 		</p>
 
-		EST: {{estimable}} / {{chi2}}
-
 		{{!-- Comparison ~ Outcomes --}}
 		{{#each outcome}}
 
 			<h2>{{name}}</h2>
 			<p>
-				{{#ifValue estimable '==' false}}
+				{{#ifValue estimable '===' false}}
 					The effect estimate could not be calculated.
 				{{/ifValue}}
 				{{#ifValue estimable 'undefOr' true}}
