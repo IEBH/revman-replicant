@@ -4,17 +4,17 @@
   "description": "Auto-generate randomized abstract style content from RevMan files",
   "main": "index.js",
   "dependencies": {
-    "async-chainable": "^1.8.1",
-    "handlebars": "^4.0.5",
+    "async-chainable": "^2.3.1",
+    "handlebars": "^4.0.6",
     "htmltidy2": "^0.1.4",
-    "lodash": "^4.15.0",
+    "lodash": "^4.17.4",
     "mersenne-twister": "^1.1.0",
-    "mocha": "^3.0.2",
-    "revman": "^1.4.1"
+    "mocha": "^3.2.0",
+    "revman": "^1.4.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.0.2"
+    "mocha": "^3.2.0"
   },
   "scripts": {
     "test": "mocha"
