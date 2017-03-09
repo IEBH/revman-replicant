@@ -30,123 +30,134 @@
 			{{/ifMultiple}}
 		</p>
 
+		EST: {{estimable}} / {{chi2}}
 
 		{{!-- Comparison ~ Outcomes --}}
 		{{#each outcome}}
 
 			<h2>{{name}}</h2>
 			<p>
-				{{#ifSingle study}}
-					We identified one study relevant to this outcome
-				{{/ifSingle}}
-				{{#ifMultiple study}}
-					We identified {{formatNumber studies}} studies relevant to this outcome
-				{{/ifMultiple}}
-
-				{{#pick}}
-					, with a total of {{formatNumber participants}} participants.
-					, involving a total of {{formatNumber participants}} participants.
-					(total n={{formatNumber participants}}).
-					involving {{formatNumber participants}} participants.
-				{{/pick}}
-
-				{{#ifSingle subgroup}}
-					{{#pick}}
-						This outcome contained a single subgroup.
-						A single subgroup was used in this outcome.
-					{{/pick}}
-				{{/ifSingle}}
-				{{#ifMultiple subgroup}}
-					{{#pick}}
-						We divided the data into {{formatNumber subgroup.length}} subgroups in accordance with our protocol
-						We categorised data into {{formatNumber subgroup.length}} subgroups (in keeping with our protocol)
-					{{/pick}}
-				{{/ifMultiple}}
-
-
-				{{#ifValue i2 'between' '30 and 70'}}
-					{{#pick}}
-						This outcome had moderate levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
-						This outcome had moderate levels of heterogeneity, I<sup>2</sup> = {{formatNumber i2 2}}%.
-						For this outcome heterogeneity is moderately high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}%.
-					{{/pick}}
+				{{#ifValue estimable '==' false}}
+					The effect estimate could not be calculated.
 				{{/ifValue}}
-				{{#ifValue i2 'gt' 70}}
-					{{#pick}}
-						This outcome had important levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
-						This outcome had important levels of heterogeneity, I<sup>2</sup> = {{formatNumber i2 2}}%.
-						For this outcome heterogeneity is high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}%.
-					{{/pick}}
-				{{/ifValue}}
+				{{#ifValue estimable 'undefOr' true}}
 
-				{{#ifValue p 'lt' 0.05}}
-					{{#pick}}
-						We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}},
-						For this outcome, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}},
-					{{/pick}}
-				{{/ifValue}}
-				{{#ifValue p 'gte' 0.05}}
-					{{#pick}}
-						There was not a clear difference between {{groupLabel1}} and {{groupLabel2}},
-						We did not find evidence of a clear difference between the two treatments in this comparison,
-					{{/pick}}
-				{{/ifValue}}
+					{{#ifNone study}}
+						There are no studies relevent to this outcome
+					{{/ifNone}}
+					{{#ifSingle study}}
+						We identified one study relevant to this outcome
+					{{/ifSingle}}
+					{{#ifMultiple study}}
+						We identified {{formatNumber studies}} studies relevant to this outcome
+					{{/ifMultiple}}
 
-				{{formatLowerCase effectMeasureText}} was {{formatNumber effectSize 2}} ({{formatNumber ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP p}}).
-			</p>
+					{{#pick}}
+						, with a total of {{formatNumber participants}} participants.
+						, involving a total of {{formatNumber participants}} participants.
+						(total n={{formatNumber participants}}).
+						involving {{formatNumber participants}} participants.
+					{{/pick}}
 
-			{{!-- outcome has subgroups --}}
-			{{#each subgroup}}
-			<h3>{{name}}</h3>
-			<p>
+					{{#ifSingle subgroup}}
+						{{#pick}}
+							This outcome contained a single subgroup.
+							A single subgroup was used in this outcome.
+						{{/pick}}
+					{{/ifSingle}}
+					{{#ifMultiple subgroup}}
+						{{#pick}}
+							We divided the data into {{formatNumber subgroup.length}} subgroups in accordance with our protocol
+							We categorised data into {{formatNumber subgroup.length}} subgroups (in keeping with our protocol)
+						{{/pick}}
+					{{/ifMultiple}}
 
-				{{#ifSingle study}}
-					{{#pick}}
-						We found one trial to be relevant to this subgroup
-						There is a single trial in this subgroup
-					{{/pick}}
-				{{/ifSingle}}
-				{{#ifMultiple study}}
-					{{#pick}}
-						We found {{formatNumber study.length}} trials to be relevant to this subgroup
-						There are {{formatNumber study.length}} relevant trials in this subgroup
-					{{/pick}}
-				{{/ifMultiple}}
 
-				{{#pick}}
-					, which included a total of {{formatNumber participants}} participants.
-					, with a total of {{formatNumber participants}} people.
-					(total n={{formatNumber participants}}).
-				{{/pick}}
+					{{#ifValue i2 'between' '30 and 70'}}
+						{{#pick}}
+							This outcome had moderate levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
+							This outcome had moderate levels of heterogeneity, I<sup>2</sup> = {{formatNumber i2 2}}%.
+							For this outcome heterogeneity is moderately high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}%.
+						{{/pick}}
+					{{/ifValue}}
+					{{#ifValue i2 'gt' 70}}
+						{{#pick}}
+							This outcome had important levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
+							This outcome had important levels of heterogeneity, I<sup>2</sup> = {{formatNumber i2 2}}%.
+							For this outcome heterogeneity is high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}%.
+						{{/pick}}
+					{{/ifValue}}
 
-				{{#ifValue i2 'between' '30 and 70'}}
-					{{#pick}}
-						This subgroup had moderate levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
-						For this subgroup heterogeneity is moderately high (I<sup>2</sup> = {{formatNumber i2 2}}%).
-					{{/pick}}
-				{{/ifValue}}
-				{{#ifValue i2 'gt' 70}}
-					{{#pick}}
-						This subgroup had important levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
-						For this subgroup heterogeneity is high (I<sup>2</sup> = {{formatNumber i2 2}}%).
-					{{/pick}}
-				{{/ifValue}}
+					{{#ifValue p 'lt' 0.05}}
+						{{#pick}}
+							We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}},
+							For this outcome, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}},
+						{{/pick}}
+					{{/ifValue}}
+					{{#ifValue p 'gte' 0.05}}
+						{{#pick}}
+							There was not a clear difference between {{groupLabel1}} and {{groupLabel2}},
+							We did not find evidence of a clear difference between the two treatments in this comparison,
+						{{/pick}}
+					{{/ifValue}}
 
-				{{#ifValue p 'lt' 0.05}}
+					{{formatLowerCase effectMeasureText}} was {{formatNumber effectSize 2}} ({{formatNumber ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP p}}).
+				</p>
+
+				{{!-- outcome has subgroups --}}
+				{{#each subgroup}}
+				<h3>{{name}}</h3>
+				<p>
+
+					{{#ifSingle study}}
+						{{#pick}}
+							We found one trial to be relevant to this subgroup
+							There is a single trial in this subgroup
+						{{/pick}}
+					{{/ifSingle}}
+					{{#ifMultiple study}}
+						{{#pick}}
+							We found {{formatNumber study.length}} trials to be relevant to this subgroup
+							There are {{formatNumber study.length}} relevant trials in this subgroup
+						{{/pick}}
+					{{/ifMultiple}}
+
 					{{#pick}}
-						We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup
-						For this outcome, within this subgroup, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}}
+						, which included a total of {{formatNumber participants}} participants.
+						, with a total of {{formatNumber participants}} people.
+						(total n={{formatNumber participants}}).
 					{{/pick}}
-				{{/ifValue}}
-				{{#ifValue p 'gte' 0.05}}
-					{{#pick}}
-						There was not a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup
-						For this subgroup, we did not find evidence of a clear difference between the two treatments
-					{{/pick}}
-				{{/ifValue}}
-				{{formatLowerCase ../effectMeasureText}} was {{formatNumber effectSize 2}} ({{formatNumber ../ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP ../p}}).
-			</p>
-			{{/each}}
+
+					{{#ifValue i2 'between' '30 and 70'}}
+						{{#pick}}
+							This subgroup had moderate levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
+							For this subgroup heterogeneity is moderately high (I<sup>2</sup> = {{formatNumber i2 2}}%).
+						{{/pick}}
+					{{/ifValue}}
+					{{#ifValue i2 'gt' 70}}
+						{{#pick}}
+							This subgroup had important levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
+							For this subgroup heterogeneity is high (I<sup>2</sup> = {{formatNumber i2 2}}%).
+						{{/pick}}
+					{{/ifValue}}
+
+					{{#ifValue p 'lt' 0.05}}
+						{{#pick}}
+							We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup
+							For this outcome, within this subgroup, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}}
+						{{/pick}}
+					{{/ifValue}}
+					{{#ifValue p 'gte' 0.05}}
+						{{#pick}}
+							There was not a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup
+							For this subgroup, we did not find evidence of a clear difference between the two treatments
+						{{/pick}}
+					{{/ifValue}}
+					{{formatLowerCase ../effectMeasureText}} was {{formatNumber effectSize 2}} ({{formatNumber ../ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP ../p}}).
+				</p>
+				{{/each}}
+
+			{{/ifValue}}
 
 		{{/each}}
 

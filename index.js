@@ -72,6 +72,8 @@ module.exports = function(options, finish) {
 					case '==':
 					case 'eq':
 						return left == right ? node.fn(this) : '';
+					case 'undefOr': // left is undefined OR right
+						return (left === undefined || left == right) ? node.fn(this) : '';
 					case '<':
 					case 'lt':
 						return left < right ? node.fn(this) : '';
