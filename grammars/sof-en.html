@@ -1,0 +1,112 @@
+<body>
+	{{#each summaryOfFindings}}
+	<p>
+		{{!-- High certainty evidence --}}
+		{{#ifValue certainty '==' 'high'}}
+			{{#ifValue benefitHalm '==' 'important'}}
+				{{intervention}}
+				{{#pick}}
+					<choice>improves / reduces</choice>
+					shows an <choice>improvement / reduction<choice> in
+				{{/pick}}
+				{{outcome}}
+			{{/ifValue}}
+			{{#ifValue benefitHalm '==' 'moderate'}}
+				{{intervention}}
+				{{#pick}}
+					slightly
+					somewhat
+					marginally
+					to some extent
+				{{/pick}}
+				<choice>improves / reduces</choice>
+				{{outcome}}
+			{{/ifValue}}
+			{{#ifValue benefitHalm '==' 'none'}}
+				{{intervention}}
+				{{#pick}}
+					makes little or no difference to
+					does not have an important effect on
+					has little or no effect on
+				{{/pick}}
+				{{outcome}}
+			{{/ifValue}}
+			(high certainty evidence)
+		{{/ifValue}}
+
+		{{!-- Moderate certainty evidence --}}
+		{{#ifValue certainty '==' 'high'}}
+			{{#ifValue benefitHalm '==' 'important'}}
+				{{intervention}}
+				{{#pick}}
+					probably <choice>improves / reduces</choice>
+					probably leads to a <choice>improvement / reduction<choice> to
+				{{/pick}}
+				{{outcome}}
+			{{/ifValue}}
+			{{#ifValue benefitHalm '==' 'moderate'}}
+				{{intervention}}
+				{{#pick}}
+					probably slightly <choice>improve / reduce</choice>
+					probably leads to slightly <choice>better / worse / less / more</choice>
+				{{/pick}}
+				{{outcome}}
+			{{/ifValue}}
+			{{#ifValue benefitHalm '==' 'none'}}
+				{{intervention}}
+				{{#pick}}
+					probably makes little or no difference to
+					most likely makes little or no difference to
+					probably results in little or no difference to
+				{{/pick}}
+				{{outcome}}
+			{{/ifValue}}
+			(moderate certainty evidence)
+		{{/ifValue}}
+
+		{{!-- Low certainty evidence --}}
+		{{#ifValue certainty '==' 'low'}}
+			{{#ifValue benefitHalm '==' 'important'}}
+				{{intervention}}
+				{{#pick}}
+					may <choice>improve / reduce</choice>
+					possibly <choice>improves / reduces</choice>
+					may possibly <choice>improve / reduce</choice>
+					could <choice>improve / reduce</choice>
+					potentially <choice>improve / reduce</choice>
+				{{/pick}}
+				{{outcome}}
+			{{/ifValue}}
+			{{#ifValue benefitHalm '==' 'moderate'}}
+				{{intervention}}
+				{{#pick}}
+					may slightly <choice>improve / reduce</choice>
+					may marginally <choice>improve / reduce</choice>
+					may somewhate <choice>improve / reduce</choice>
+				{{/pick}}
+				{{outcome}}
+			{{/ifValue}}
+			{{#ifValue benefitHalm '==' 'none'}}
+				{{intervention}}
+				{{#pick}}
+					may make little or no difference to
+					may produce little or no difference to
+					may result in little to no difference to
+				{{/pick}}
+				{{outcome}}
+			{{/ifValue}}
+			(low certainty evidence)
+		{{/ifValue}}
+
+		{{!-- Very-Low certainty evidence --}}
+		{{#ifValue certainty '==' 'veryLow'}}
+			{{#pick}}
+				It is uncertain whether {{intervention}} <choice>improves / reduces</choice> {{outcome}} because the certainty of this evidence is very low.
+				The certainty of this evidence is very low; therefore, it is uncertain whether {{intervention}} <choice>improves / reduces</choice> {{outcome}}.
+				The certainty of this evidence is very low; therefore, it is uncertain whether or not {{intervention}} <choice>improves / reduces</choice> {{outcome}}.
+			{{/pick}}
+		{{/ifValue}}
+
+	</p>
+	{{/each}}
+</body>

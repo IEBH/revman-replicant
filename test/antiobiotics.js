@@ -37,7 +37,6 @@ describe('Replicant - generate abstract for antibiotics-for-sore-throat.rm5', ()
 		});
 	});
 
-
 });
 
 describe('Generate consistant data when given the same number seed', ()=> {
@@ -73,4 +72,23 @@ describe('Generate consistant data when given the same number seed', ()=> {
 			});
 		});
 	});
+
+});
+
+describe.only('Generate SoF table text', ()=> {
+
+	it('should generate basic SoF table output', function(done) {
+		this.timeout(30 * 1000);
+
+		replicant({
+			revman: './test/data/antibiotics-for-sore-throat.rm5',
+			grammar: './grammars/sof-en.html',
+		}, (err, res) => {
+			expect(err).to.not.be.ok;
+			expect(res).to.be.a('string');
+			console.log('OUTPUT', res);
+			done();
+		});
+	});
+
 });
