@@ -5,12 +5,22 @@
 			{{#pick}}
 				For this review we generated {{formatNumber analysesAndData.comparison.length}} comparisons.
 				{{formatNumber analysesAndData.comparison.length}} comparisons were used in this review.
+				We specified {{formatNumber analysesAndData.comparison.length}} comparisons.
+				We specified {{formatNumber analysesAndData.comparison.length}} comparisons in this review.
+				{{formatNumber analysesAndData.comparison.length}} comparisons are included in this review.
+				For this review we examined {{formatNumber analysesAndData.comparison.length}} comparisons.
+				This review involved {{formatNumber analysesAndData.comparison.length}} comparisons.
 			{{/pick}}
 		{{/ifMultiple}}
 		{{#ifSingle analysesAndData.comparison}}
 			{{#pick}}
 				For this review we generated a single comparison.
 				A single comparison was used in this review.
+				This review involved only one planned comparison.
+				For this review we examined a single comparison.
+				For this review we specified a single comparison.
+				This review involved one planned comparison.
+				A single comparison is included in this review.
 			{{/pick}}
 		{{/ifSingle}}
 	</p>
@@ -24,9 +34,16 @@
 		<p>
 			{{#ifSingle outcome}}
 				This comparison has a single outcome.
+				There was only a single outcome for this comparison.
+				There was one outcome for this comparison.
+				There was a single outcome for this comparison.
+				This comparison involved a single outcome only.
+				There was one outcome for this comparison.
 			{{/ifSingle}}
 			{{#ifMultiple outcome}}
 				This comparison has {{formatNumber outcome.length}} outcomes.
+				There were {{formatNumber outcome.length}} outcome[s] for this comparison.
+				This comparison involved {{formatNumber outcome.length}} outcomes.
 			{{/ifMultiple}}
 		</p>
 
@@ -37,17 +54,27 @@
 			<p>
 				{{#ifValue estimable '===' false}}
 					The effect estimate could not be calculated.
+					The effect size could not be estimated.
+					An effect estimate could not be calculated.
+					An effect size could not be estimated. 
 				{{/ifValue}}
 				{{#ifValue estimable 'undefOr' true}}
 
 					{{#ifNone study}}
-						There are no studies relevent to this outcome
+						No studies reported sufficient data for this outcome.
+						No studies provided data relevant to this outcome.
 					{{/ifNone}}
 					{{#ifSingle study}}
-						We identified one study relevant to this outcome
+						We identified one study relevant to this outcome.
+						We identified one study that provided useable data relevant to this outcome.
+						Data relevant to this outcome were reported in one study.
 					{{/ifSingle}}
 					{{#ifMultiple study}}
-						We identified {{formatNumber studies}} studies relevant to this outcome
+						We identified {{formatNumber studies}} studies relevant to this outcome.
+						For this outcome we identified {{formatNumber studies}} relevant studies.
+						{{formatNumber studies}} studies provided adequate data for this outcome.
+						{{formatNumber studies}} studies provided relevant data for this outcome.
+						We identified <x> studies that reported relevant data for this outcome.
 					{{/ifMultiple}}
 
 					{{#pick}}
@@ -65,8 +92,14 @@
 					{{/ifSingle}}
 					{{#ifMultiple subgroup}}
 						{{#pick}}
-							We divided the data into {{formatNumber subgroup.length}} subgroups in accordance with our protocol
-							We categorised data into {{formatNumber subgroup.length}} subgroups (in keeping with our protocol)
+							We divided the data into {{formatNumber subgroup.length}} subgroups in accordance with our protocol.
+							As specified in our protocol, we divided the data into {{formatNumber subgroup.length}} subgroups.
+							The data were divided into {{formatNumber subgroup.length}} groups as specified in the protocol.
+							Data were divided into the {{formatNumber subgroup.length}} pre-specified subgroups.
+							We categorised data into {{formatNumber subgroup.length}} subgroups (in keeping with our protocol).
+							There were {{formatNumber subgroup.length}} subgroups, as specified by the protocol. 
+							We categorised data into {{formatNumber subgroup.length}} subgroups as specified in our protocol.
+							As specified in our protocol, we categorised data into {{formatNumber subgroup.length}} subgroups.
 						{{/pick}}
 					{{/ifMultiple}}
 
@@ -75,6 +108,8 @@
 						{{#pick}}
 							This outcome had moderate levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
 							This outcome had moderate levels of heterogeneity, I<sup>2</sup> = {{formatNumber i2 2}}%.
+							The heterogeneity of effects for this outcome was moderate (I<sup>2</sup> = {{formatNumber i2 2}}%).
+							This outcome had a moderate level of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
 							For this outcome heterogeneity is moderately high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}%.
 						{{/pick}}
 					{{/ifValue}}
@@ -89,13 +124,16 @@
 					{{#ifValue p 'lt' 0.05}}
 						{{#pick}}
 							We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}},
+							For this outcome, we found evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}},
 							For this outcome, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}},
+							There was a clear difference in this oucome between {{groupLabel1}} and {{groupLabel2}},
 						{{/pick}}
 					{{/ifValue}}
 					{{#ifValue p 'gte' 0.05}}
 						{{#pick}}
 							There was not a clear difference between {{groupLabel1}} and {{groupLabel2}},
 							We did not find evidence of a clear difference between the two treatments in this comparison,
+							We did not find evidence of a difference between the two treatments in this comparison,
 						{{/pick}}
 					{{/ifValue}}
 
@@ -109,8 +147,9 @@
 
 					{{#ifSingle study}}
 						{{#pick}}
-							We found one trial to be relevant to this subgroup
-							There is a single trial in this subgroup
+							We found one trial to be relevant to this subgroup,
+							There is a single trial in this subgroup,
+							We found one trial with data relevant to this subgroup,
 						{{/pick}}
 					{{/ifSingle}}
 					{{#ifMultiple study}}
@@ -124,6 +163,7 @@
 						, which included a total of {{formatNumber participants}} participants.
 						, with a total of {{formatNumber participants}} people.
 						(total n={{formatNumber participants}}).
+						, with a total of {{formatNumber participants}} study participants.
 					{{/pick}}
 
 					{{#ifValue i2 'between' '30 and 70'}}
