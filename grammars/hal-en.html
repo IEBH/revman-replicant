@@ -109,15 +109,23 @@
 							This outcome had moderate levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
 							This outcome had moderate levels of heterogeneity, I<sup>2</sup> = {{formatNumber i2 2}}%.
 							The heterogeneity of effects for this outcome was moderate (I<sup>2</sup> = {{formatNumber i2 2}}%).
+							The heterogeneity of effects for this outcome [in this subgroup] was moderately high (I<sup>2</sup> = {{formatNumber i2 2}}%).
+							Heterogeneity within this subgroup was moderate (I<sup>2</sup> = {{formatNumber i2 2}}%).
 							This outcome had a moderate level of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
+							The [subgroup] outcomes had moderate levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
 							For this outcome heterogeneity is moderately high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}%.
+							[In this subgroup], heterogeneity was found to be high (I<sup>2</sup> = {{formatNumber i2 2}}%) for this outcome.
+							Outcomes for [this subgroup] had high heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
 						{{/pick}}
 					{{/ifValue}}
 					{{#ifValue i2 'gt' 70}}
 						{{#pick}}
-							This outcome had important levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
-							This outcome had important levels of heterogeneity, I<sup>2</sup> = {{formatNumber i2 2}}%.
+							This outcome had high levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
+							This outcome had high levels of heterogeneity, I<sup>2</sup> = {{formatNumber i2 2}}%.
 							For this outcome heterogeneity is high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}%.
+							For this outcome heterogeneity was high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}%.
+							Heterogeneity was found to be high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}% for this outcome.
+							Outcomes for [this subgroup] had high heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
 						{{/pick}}
 					{{/ifValue}}
 
@@ -139,6 +147,14 @@
 
 					{{formatLowerCase effectMeasureText}} was {{formatNumber effectSize 2}} ({{formatNumber ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP p}}).
 				</p>
+
+				{{#pick}}
+					(The <effect measure> was <x> (<x>% CI <x> to <x>).)
+					(The combined  <effect measure> across studies was <x> (<x>% CI <x> to <x>).)
+					(The pooled  <effect measure> across studies was <x> (<x>% CI <x> to <x>).)
+					(The overall effect was  <x> (<x>% CI <x> to <x>).)
+					(The overall <effect measure> across studies was (<x>% CI <x> to <x>).)
+				{{/pick}}
 
 				{{!-- outcome has subgroups --}}
 				{{#each subgroup}}
@@ -174,7 +190,7 @@
 					{{/ifValue}}
 					{{#ifValue i2 'gt' 70}}
 						{{#pick}}
-							This subgroup had important levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
+							This subgroup had high levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
 							For this subgroup heterogeneity is high (I<sup>2</sup> = {{formatNumber i2 2}}%).
 						{{/pick}}
 					{{/ifValue}}
