@@ -75,7 +75,7 @@ describe('Generate consistant data when given the same number seed', ()=> {
 
 });
 
-describe.only('Generate SoF table text', ()=> {
+describe.skip('Generate SoF table text', ()=> {
 
 	it('should generate basic SoF table output', function(done) {
 		this.timeout(30 * 1000);
