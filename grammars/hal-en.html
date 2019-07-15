@@ -1,4 +1,41 @@
 <body>
+	<h1>Results of the search</h1>
+	<p>
+		{{#pick}}
+			Our search identified NUMBER records.
+			Our search identified NUMBER articles.
+			Our search identified NUMBER publications.
+			Our search identified NUMBER studies.
+			The database searches found NUMBER (records/articles...)
+		{{/pick}}
+		{{#pick}}
+			We found NUMBER citations from (additional/other) sources.
+			Through supplementory methods, we identified NUMBER (records/articles...).
+			We identified NUMBER additional (records/articles...) through supplementory methods.
+		{{/pick}}
+		{{#pick}}
+			The total number of (records/articles...) found was NUMBER.
+			In total we identified NUMBER of (records/articles...).
+		{{/pick}}
+		{{#pick}}
+			After removing duplicates the (,unique) number of (r/a...) was NUMBER.
+			Removal of duplicates left (,unique) NUMBER (r/a...).
+		{{/pick}}
+		{{#pick}}
+			We screened by title and abstract, excluding NUMBER to leave NUMBER which we screened in full-text.
+			We screened those (r/a...) by title and abstract and excluded NUMBER, leaving NUMBER, which were screened in full-text.
+		{{/pick}}
+		{{#pick}}
+			During full-text screening we excluded NUMBER (r/a...).
+			We excluded NUMBER full-text (r/a...).
+		{{/pick}}
+		{{#pick}}
+			We included NUMBER (r/a...), and were able to extract outcome data from NUMBER.
+			From NUMBER included studies, NUMBER of studies had data that could be extracted.
+			From NUMBER included studies, NUMBER of studies had extractable data.
+		{{/pick}}
+	</p>
+	
 	{{!-- Introduction --}}
 	<p>
 		{{#ifMultiple analysesAndData.comparison}}
