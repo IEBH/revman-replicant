@@ -7,7 +7,7 @@
     "async-chainable": "^2.6.1",
     "handlebars": "^4.1.2",
     "htmltidy2": "^0.3.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.14",
     "mersenne-twister": "^1.1.0",
     "mocha": "^6.1.4",
     "revman": "^1.4.2"
