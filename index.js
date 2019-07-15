@@ -189,6 +189,9 @@ module.exports = function(options, finish) {
 			next(null, this.result
 				// Remove spaces before commas
 				.replace(/\s+,\s/g, ', ')
+
+				// Add spaces after full-stops
+				.replace(/\.(?<!\s)/g, '. ')
 			);
 		})
 		// }}}
