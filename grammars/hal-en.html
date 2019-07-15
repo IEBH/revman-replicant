@@ -2,37 +2,36 @@
 	<h1>Results of the search</h1>
 	<p>
 		{{#pick}}
-			Our search identified NUMBER records.
-			Our search identified NUMBER articles.
-			Our search identified NUMBER publications.
-			Our search identified NUMBER studies.
-			The database searches found NUMBER (records/articles...)
+			Our search identified {{input 'number' 'Initial number of articles in your PRISMA diagram'}} {{#pick}}articles / publications / records / studies{{/pick}}.
+			The database searches found {{input 'number' 'Initial number of articles in your PRISMA diagram'}} {{#pick}}articles / publications / records / studies{{/pick}}.
 		{{/pick}}
 		{{#pick}}
-			We found NUMBER citations from (additional/other) sources.
-			Through supplementary methods, we identified NUMBER (records/articles...).
-			We identified NUMBER additional (records/articles...) through supplementary methods.
+			We found {{input 'number' 'Number of additional articles found from other sources in your PRISMA diagram'}} citations from (additional/other) sources.
+			Through supplementary methods, we identified {{input 'number' 'Number of additional articles found from other sources in your PRISMA diagram'}} {{#pick}}articles / publications / records / studies{{/pick}}.
+			We identified {{input 'number' 'Number of additional articles found from other sources in your PRISMA diagram'}} additional {{#pick}}articles / publications / records / studies{{/pick}} through supplementary methods.
 		{{/pick}}
 		{{#pick}}
-			The total number of (records/articles...) found was NUMBER.
-			In total we identified NUMBER of (records/articles...).
+			The total number of {{#pick}}articles / publications / records / studies{{/pick}} found was {{input 'number' 'Total number of articles identified'}}.
+			In total we identified {{input 'number' 'Total number of articles identified'}} of {{#pick}}articles / publications / records / studies{{/pick}}.
 		{{/pick}}
 		{{#pick}}
-			After removing duplicates the (,unique) number of (r/a...) was NUMBER.
-			Removal of duplicates left (,unique) NUMBER (r/a...).
+			After removing duplicates the number of {{#pick}}articles / publications / records / studies{{/pick}} was {{input 'number' 'Number of articles remaining after de-duplication'}}.
+			After removing duplicates the unique number of {{#pick}}articles / publications / records / studies{{/pick}} was {{input 'number' 'Number of articles remaining after de-duplication'}}.
+			Removal of duplicates left {{input 'number' 'Number of articles remaining after de-duplication'}} {{#pick}}articles / publications / records / studies{{/pick}}.
+			Removal of duplicates left unique {{input 'number' 'Number of articles remaining after de-duplication'}} {{#pick}}articles / publications / records / studies{{/pick}}.
 		{{/pick}}
 		{{#pick}}
-			We screened by title and abstract, excluding NUMBER to leave NUMBER which we screened in full-text.
-			We screened those (r/a...) by title and abstract and excluded NUMBER, leaving NUMBER, which were screened in full-text.
+			We screened by title and abstract, excluding {{input 'number' 'Number of articles excluded after full-text screening'}} to leave {{input 'number' 'Final total of articles post title/abstract screening'}} which we screened in full-text.
+			We screened those {{#pick}}articles / publications / records / studies{{/pick}} by title and abstract and excluded {{input 'number' 'Number of articles excluded after title/abstract screening'}}, leaving {{input 'number' 'Final total of articles post title/abstract screening'}}, which were screened in full-text.
 		{{/pick}}
 		{{#pick}}
-			During full-text screening we excluded NUMBER (r/a...).
-			We excluded NUMBER full-text (r/a...).
+			During full-text screening we excluded {{input 'number' 'Article count excluded during full-text screening'}} {{#pick}}articles / publications / records / studies{{/pick}}.
+			We excluded {{input 'number' 'Article count excluded during full-text screening'}} full-text {{#pick}}articles / publications / records / studies{{/pick}}.
 		{{/pick}}
 		{{#pick}}
-			We included NUMBER (r/a...), and were able to extract outcome data from NUMBER.
-			From NUMBER included studies, NUMBER of studies had data that could be extracted.
-			From NUMBER included studies, NUMBER of studies had extractable data.
+			We included {{input 'number' 'Number of included studies'}} {{#pick}}articles / publications / records / studies{{/pick}}, and were able to extract outcome data from {{input 'number' 'Number of studies it was possible to extract data from'}}.
+			From {{input 'number' 'Number of included studies'}} included studies, {{input 'number' 'Number of studies it was possible to extract data from'}} of studies had data that could be extracted.
+			From {{input 'number' 'Number of included studies'}} included studies, {{input 'number' 'Number of studies it was possible to extract data from'}} of studies had extractable data.
 		{{/pick}}
 	</p>
 
@@ -112,7 +111,7 @@
 						For this outcome we identified {{formatNumber studies}} relevant studies.
 						{{formatNumber studies}} studies provided adequate data for this outcome.
 						{{formatNumber studies}} studies provided relevant data for this outcome.
-						We identified <x> studies that reported relevant data for this outcome.
+						We identified {{formatNumber studies}} studies that reported relevant data for this outcome.
 					{{/ifMultiple}}
 
 					{{#pick}}
@@ -144,26 +143,26 @@
 
 					{{#ifValue i2 'between' '30 and 70'}}
 						{{#pick}}
-							This outcome had moderate levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
-							This outcome had moderate levels of heterogeneity, I<sup>2</sup> = {{formatNumber i2 2}}%.
-							The heterogeneity of effects for this outcome was moderate (I<sup>2</sup> = {{formatNumber i2 2}}%).
-							The heterogeneity of effects for this outcome [in this subgroup] was moderately high (I<sup>2</sup> = {{formatNumber i2 2}}%).
-							Heterogeneity within this subgroup was moderate (I<sup>2</sup> = {{formatNumber i2 2}}%).
-							This outcome had a moderate level of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
-							The [subgroup] outcomes had moderate levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
-							For this outcome heterogeneity is moderately high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}%.
-							[In this subgroup], heterogeneity was found to be high (I<sup>2</sup> = {{formatNumber i2 2}}%) for this outcome.
-							Outcomes for [this subgroup] had high heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
+							This outcome had moderate levels of heterogeneity (I² = {{formatNumber i2 2}}%).
+							This outcome had moderate levels of heterogeneity, I² = {{formatNumber i2 2}}%.
+							The heterogeneity of effects for this outcome was moderate (I² = {{formatNumber i2 2}}%).
+							The heterogeneity of effects for this outcome [in this subgroup] was moderately high (I² = {{formatNumber i2 2}}%).
+							Heterogeneity within this subgroup was moderate (I² = {{formatNumber i2 2}}%).
+							This outcome had a moderate level of heterogeneity (I² = {{formatNumber i2 2}}%).
+							The [subgroup] outcomes had moderate levels of heterogeneity (I² = {{formatNumber i2 2}}%).
+							For this outcome heterogeneity is moderately high {{formatNumber i2 2}}, I² = {{formatNumber i2 2}}%.
+							[In this subgroup], heterogeneity was found to be high (I² = {{formatNumber i2 2}}%) for this outcome.
+							Outcomes for [this subgroup] had high heterogeneity (I² = {{formatNumber i2 2}}%).
 						{{/pick}}
 					{{/ifValue}}
 					{{#ifValue i2 'gt' 70}}
 						{{#pick}}
-							This outcome had high levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
-							This outcome had high levels of heterogeneity, I<sup>2</sup> = {{formatNumber i2 2}}%.
-							For this outcome heterogeneity is high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}%.
-							For this outcome heterogeneity was high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}%.
-							Heterogeneity was found to be high {{formatNumber i2 2}}, I<sup>2</sup> = {{formatNumber i2 2}}% for this outcome.
-							Outcomes for [this subgroup] had high heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
+							This outcome had high levels of heterogeneity (I² = {{formatNumber i2 2}}%).
+							This outcome had high levels of heterogeneity, I² = {{formatNumber i2 2}}%.
+							For this outcome heterogeneity is high {{formatNumber i2 2}}, I² = {{formatNumber i2 2}}%.
+							For this outcome heterogeneity was high {{formatNumber i2 2}}, I² = {{formatNumber i2 2}}%.
+							Heterogeneity was found to be high {{formatNumber i2 2}}, I² = {{formatNumber i2 2}}% for this outcome.
+							Outcomes for [this subgroup] had high heterogeneity (I² = {{formatNumber i2 2}}%).
 						{{/pick}}
 					{{/ifValue}}
 
@@ -185,14 +184,6 @@
 
 					{{formatLowerCase effectMeasureText}} was {{formatNumber effectSize 2}} ({{formatNumber ciTotal 2}}% CI {{formatNumber ciStart 2}} to {{formatNumber ciEnd 2}}, {{formatP p}}).
 				</p>
-
-				{{#pick}}
-					(The <effect measure> was <x> (<x>% CI <x> to <x>).)
-					(The combined  <effect measure> across studies was <x> (<x>% CI <x> to <x>).)
-					(The pooled  <effect measure> across studies was <x> (<x>% CI <x> to <x>).)
-					(The overall effect was  <x> (<x>% CI <x> to <x>).)
-					(The overall <effect measure> across studies was (<x>% CI <x> to <x>).)
-				{{/pick}}
 
 				{{!-- outcome has subgroups --}}
 				{{#each subgroup}}
@@ -223,14 +214,14 @@
 
 					{{#ifValue i2 'between' '30 and 70'}}
 						{{#pick}}
-							This subgroup had moderate levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
-							For this subgroup heterogeneity is moderately high (I<sup>2</sup> = {{formatNumber i2 2}}%).
+							This subgroup had moderate levels of heterogeneity (I² = {{formatNumber i2 2}}%).
+							For this subgroup heterogeneity is moderately high (I² = {{formatNumber i2 2}}%).
 						{{/pick}}
 					{{/ifValue}}
 					{{#ifValue i2 'gt' 70}}
 						{{#pick}}
-							This subgroup had high levels of heterogeneity (I<sup>2</sup> = {{formatNumber i2 2}}%).
-							For this subgroup heterogeneity is high (I<sup>2</sup> = {{formatNumber i2 2}}%).
+							This subgroup had high levels of heterogeneity (I² = {{formatNumber i2 2}}%).
+							For this subgroup heterogeneity is high (I² = {{formatNumber i2 2}}%).
 						{{/pick}}
 					{{/ifValue}}
 
@@ -261,9 +252,9 @@
 	<h1>Risk of bias</h1>
 	<p>
 		{{#pick}}
-			NUMBER of included studies were mostly (USER CHOICE: low/unclear/high) risk of bias.
+			{{input 'number' 'The number of suitable studies from the Risk of Bias diagram'}} of included studies were mostly {{input 'choice' 'The RoB on the majority of studies' 'low, unclear, high'}} risk of bias.
 		{{/pick}}
-		<h1>COMMENT ON RISK OF BIAS DOMAINS WHICH HAVE A LARGE PROPORTION OF UNCLEAR OR HIGH RISK JUDGEMENTS HERE</h1>
+		{{input 'text' 'Comments on the Risk of Bias domains which have a large proportion of unclear or high risk judgements'}}
 	</p>
-	<h1>INSERT THE RISK OF BIAS FIGURE HERE</h1>
+	{{input 'figure' 'Place the Risk of Bias figure here'}}
 </body>
