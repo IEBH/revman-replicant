@@ -36,11 +36,18 @@ module.exports = function(options, finish) {
 		.then(function(next) {
 			// Array Utilities {{{
 			handlebars.registerHelper('pick', function(node) {
-				var options = _(node.fn(this))
-					.split(/\s*\n\s*/)
-					.filter()
-					.map(i => _.trim(i))
-					.value();
+				var content = node.fn(this);
+				var options;
+
+				if (/\n/.test(content)) { // Single line - use `a / b / c` selection
+					options = content.split(/\s*\/\s*/);
+				} else { // Multi-line - use `a\nb\nc` selection
+					options = _(content)
+						.split(/\s*\n\s*/)
+						.filter()
+						.map(i => _.trim(i))
+						.value();
+				}
 
 				return options[Math.floor(randomGenerator.random() * options.length)];
 			});

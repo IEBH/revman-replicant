@@ -96,7 +96,10 @@ Valid expressions are listed below:
 
 pick
 ----
-Choose one of the following options at random. Choices are delimited by line-feeds.
+Choose one of the following options at random. Choices are delimited either:
+
+* If multiple lines by line-feeds
+* If text is a single line by `a / b / c` notation (i.e. forward slash with spacing)
 
 ```html
 My name is
@@ -105,6 +108,8 @@ My name is
 	Dick
 	Harry
 {{/pick}}
+
+and I am {{#pick}}male / female{{/pick}}
 ```
 
 
