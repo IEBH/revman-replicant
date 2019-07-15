@@ -133,12 +133,12 @@ module.exports = function(options, finish) {
 			// }}}
 
 			// User prompting {{{
-			handlebars.registerHelper('input', function(type, description, options) {
+			handlebars.registerHelper('input', function(type, display, description) {
 				switch (type) {
-					case 'choice': return '<dfn title="' + description + '">' + options.split(/\s*,\s*/).join(' / ') + '</dfn>';
-					case 'figure': return '<dfn title="' + description + '">FIGURE</dfn>';
-					case 'number': return '<dfn title="' + description + '">NUMBER</dfn>';
-					case 'text': return '<dfn title="' + description + '">TEXT REQUIRED</dfn>';
+					case 'choice': return '<dfn title="' + description + '">' + display.split(/\s*[,\/]\s*/).join(' / ') + '</dfn>';
+					case 'figure': return '<dfn title="' + description + '">' + display + '</dfn>';
+					case 'number': return '<dfn title="' + description + '">' + display + '</dfn>';
+					case 'text': return '<dfn title="' + description + '">' + display + '</dfn>';
 					default: throw new Error('Unknown input type "' + type + '"');
 				}
 				return '(' + description + ')';

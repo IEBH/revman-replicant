@@ -2,36 +2,36 @@
 	<h1>Results of the search</h1>
 	<p>
 		{{#pick}}
-			Our search identified {{input 'number' 'Initial number of articles in your PRISMA diagram'}} {{#pick}}articles / publications / records / studies{{/pick}}.
-			The database searches found {{input 'number' 'Initial number of articles in your PRISMA diagram'}} {{#pick}}articles / publications / records / studies{{/pick}}.
+			Our search identified {{input 'number' '[SEARCH TOTAL]' 'Initial number of articles in your PRISMA diagram'}} {{#pick}}articles / publications / records / studies{{/pick}}.
+			The database searches found {{input 'number' '[SEARCH TOTAL]' 'Initial number of articles in your PRISMA diagram'}} {{#pick}}articles / publications / records / studies{{/pick}}.
 		{{/pick}}
 		{{#pick}}
-			We found {{input 'number' 'Number of additional articles found from other sources in your PRISMA diagram'}} citations from (additional/other) sources.
-			Through supplementary methods, we identified {{input 'number' 'Number of additional articles found from other sources in your PRISMA diagram'}} {{#pick}}articles / publications / records / studies{{/pick}}.
-			We identified {{input 'number' 'Number of additional articles found from other sources in your PRISMA diagram'}} additional {{#pick}}articles / publications / records / studies{{/pick}} through supplementary methods.
+			We found {{input 'number' '[SUPPLEMENTORY]' 'Number of additional articles found from other sources in your PRISMA diagram'}} citations from (additional/other) sources.
+			Through supplementary methods, we identified {{input 'number' '[SUPPLEMENTORY]' 'Number of additional articles found from other sources in your PRISMA diagram'}} {{#pick}}articles / publications / records / studies{{/pick}}.
+			We identified {{input 'number' '[SUPPLEMENTORY]' 'Number of additional articles found from other sources in your PRISMA diagram'}} additional {{#pick}}articles / publications / records / studies{{/pick}} through supplementary methods.
 		{{/pick}}
 		{{#pick}}
-			The total number of {{#pick}}articles / publications / records / studies{{/pick}} found was {{input 'number' 'Total number of articles identified'}}.
-			In total we identified {{input 'number' 'Total number of articles identified'}} of {{#pick}}articles / publications / records / studies{{/pick}}.
+			The total number of {{#pick}}articles / publications / records / studies{{/pick}} found was {{input 'number' '[TOTAL]' 'Total number of articles identified'}}.
+			In total we identified {{input 'number' '[TOTAL]' 'Total number of articles identified (sum of last two numbers)'}} {{#pick}}articles / publications / records / studies{{/pick}}.
 		{{/pick}}
 		{{#pick}}
-			After removing duplicates the number of {{#pick}}articles / publications / records / studies{{/pick}} was {{input 'number' 'Number of articles remaining after de-duplication'}}.
-			After removing duplicates the unique number of {{#pick}}articles / publications / records / studies{{/pick}} was {{input 'number' 'Number of articles remaining after de-duplication'}}.
-			Removal of duplicates left {{input 'number' 'Number of articles remaining after de-duplication'}} {{#pick}}articles / publications / records / studies{{/pick}}.
-			Removal of duplicates left unique {{input 'number' 'Number of articles remaining after de-duplication'}} {{#pick}}articles / publications / records / studies{{/pick}}.
+			After removing duplicates the number of {{#pick}}articles / publications / records / studies{{/pick}} was {{input 'number' '[UNIQUE]' 'Number of articles remaining after de-duplication'}}.
+			After removing duplicates the unique number of {{#pick}}articles / publications / records / studies{{/pick}} was {{input 'number' '[UNIQUE]' 'Number of articles remaining after de-duplication'}}.
+			Removal of duplicates left {{input 'number' '[UNIQUE]' 'Number of articles remaining after de-duplication'}} {{#pick}}articles / publications / records / studies{{/pick}}.
+			Removal of duplicates left unique {{input 'number' '[UNIQUE]' 'Number of articles remaining after de-duplication'}} {{#pick}}articles / publications / records / studies{{/pick}}.
 		{{/pick}}
 		{{#pick}}
-			We screened by title and abstract, excluding {{input 'number' 'Number of articles excluded after full-text screening'}} to leave {{input 'number' 'Final total of articles post title/abstract screening'}} which we screened in full-text.
-			We screened those {{#pick}}articles / publications / records / studies{{/pick}} by title and abstract and excluded {{input 'number' 'Number of articles excluded after title/abstract screening'}}, leaving {{input 'number' 'Final total of articles post title/abstract screening'}}, which were screened in full-text.
+			We screened by title and abstract, excluding {{input 'number' '[IRRELEVANT]' 'Number of articles excluded after full-text screening'}} to leave {{input 'number' '[FULL TEXT]' 'Final total of articles post title/abstract screening'}} which we screened in full-text.
+			We screened those {{#pick}}articles / publications / records / studies{{/pick}} by title and abstract and excluded {{input 'number' '[IRRELEVANT]' 'Number of articles excluded after title/abstract screening'}}, leaving {{input 'number' '[FULL TEXT]' 'Final total of articles post title/abstract screening'}}, which were screened in full-text.
 		{{/pick}}
 		{{#pick}}
-			During full-text screening we excluded {{input 'number' 'Article count excluded during full-text screening'}} {{#pick}}articles / publications / records / studies{{/pick}}.
-			We excluded {{input 'number' 'Article count excluded during full-text screening'}} full-text {{#pick}}articles / publications / records / studies{{/pick}}.
+			During full-text screening we excluded {{input 'number' '[EXCLUDED]' 'Article count excluded during full-text screening'}} {{#pick}}articles / publications / records / studies{{/pick}}.
+			We excluded {{input 'number' '[EXCLUDED]' 'Article count excluded during full-text screening'}} full-text {{#pick}}articles / publications / records / studies{{/pick}}.
 		{{/pick}}
 		{{#pick}}
-			We included {{input 'number' 'Number of included studies'}} {{#pick}}articles / publications / records / studies{{/pick}}, and were able to extract outcome data from {{input 'number' 'Number of studies it was possible to extract data from'}}.
-			From {{input 'number' 'Number of included studies'}} included studies, {{input 'number' 'Number of studies it was possible to extract data from'}} of studies had data that could be extracted.
-			From {{input 'number' 'Number of included studies'}} included studies, {{input 'number' 'Number of studies it was possible to extract data from'}} of studies had extractable data.
+			We included {{input 'number' '[INCLUDED]' 'Number of included studies'}} {{#pick}}articles / publications / records / studies{{/pick}}, and were able to extract outcome data from {{input 'number' '[EXTRACTED]' 'Number of studies it was possible to extract data from'}}.
+			From {{input 'number' '[INCLUDED]' 'Number of included studies'}} included studies, {{input 'number' '[EXTRACTED]' 'Number of studies it was possible to extract data from'}} of studies had data that could be extracted.
+			From {{input 'number' '[INCLUDED]' 'Number of included studies'}} included studies, {{input 'number' '[EXTRACTED]' 'Number of studies it was possible to extract data from'}} of studies had extractable data.
 		{{/pick}}
 	</p>
 
@@ -252,9 +252,9 @@
 	<h1>Risk of bias</h1>
 	<p>
 		{{#pick}}
-			{{input 'number' 'The number of suitable studies from the Risk of Bias diagram'}} of included studies were mostly {{input 'choice' 'The RoB on the majority of studies' 'low, unclear, high'}} risk of bias.
+			{{input 'number' '[INCLUDED]' 'The number of suitable studies from the Risk of Bias diagram'}} of included studies were mostly {{input 'choice' '[low / unclear / high]' 'The RoB on the majority of studies'}} risk of bias.
 		{{/pick}}
-		{{input 'text' 'Comments on the Risk of Bias domains which have a large proportion of unclear or high risk judgements'}}
+		{{input 'text' '[RISK OF BIAS TEXT]' 'Comments on the Risk of Bias domains which have a large proportion of unclear or high risk judgements'}}
 	</p>
-	{{input 'figure' 'Place the Risk of Bias figure here'}}
+	{{input 'figure' '[RISK OF BIAS FIGURE]' 'Place the Risk of Bias figure here'}}
 </body>

@@ -30,20 +30,20 @@ This outcome had moderate levels of heterogeneity (I<sup>2</sup> = {{formatNumbe
 ```
 
 
-input type description options
+input type display description
 ------------------------------
 Request input from the user.
 This is useful if a given field does not exist in a RevMan file.
 
 ```html
-We examined {{input 'number' 'Number of articles you examined'}} articles.
+We examined {{input 'number' '[ARTICLE COUNT]' 'Number of articles you examined'}} articles.
 ```
 
 Valid types:
 
 | Type     | Description                                          |
 |----------|------------------------------------------------------|
-| `choice` | Request that the user pick from one option - options are supplied as the final argument in CSV format |
+| `choice` | Request that the user pick from one option - options are supplied as the display argument in CSV format or denoted with forward slashes |
 | `figure` | Request that the user inserts a specific figure here |
 | `number` | Allow only numeric inputs                            |
 | `text`   | Ask for multi line text input                        |
