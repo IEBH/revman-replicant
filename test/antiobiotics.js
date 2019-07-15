@@ -1,12 +1,17 @@
 var expect = require('chai').expect;
+var fs = require('fs');
 var handlebars = require('handlebars');
+var mlog = require('mocha-logger');
 var replicant = require('..');
 var revman = require('revman');
+var temp = require('temp');
 
 describe('Replicant - generate abstract for antibiotics-for-sore-throat.rm5', ()=> {
 
 	it('should parse string input', function(done) {
 		this.timeout(30 * 1000);
+
+		var tempPath = temp.path({prefix: 'replicant-', suffix: '.html'});
 
 		replicant({
 			revman: './test/data/antibiotics-for-sore-throat.rm5',
@@ -14,6 +19,8 @@ describe('Replicant - generate abstract for antibiotics-for-sore-throat.rm5', ()
 		}, (err, res) => {
 			expect(err).to.not.be.ok;
 			expect(res).to.be.a('string');
+			fs.writeFileSync(tempPath, res);
+			mlog.log('written output to', tempPath);
 			done();
 		});
 	});
