@@ -32,6 +32,12 @@ module.exports = function(options, finish) {
 			},
 		})
 		// }}}
+		// Rewrite some of the grammer so its more logical {{{
+		.then('grammar', function(next) {
+			// Grammars shouldn't have to insist that `{{input}}` elements are tripple escaped everywhere
+			next(null, this.grammar.replace(/{{input(.*?)}}/g, '{{{input$1}}}'));
+		})
+		// }}}
 		// Setup handlebars helpers {{{
 		.then(function(next) {
 			// Array Utilities {{{
@@ -39,7 +45,7 @@ module.exports = function(options, finish) {
 				var content = node.fn(this);
 				var options;
 
-				if (/\n/.test(content)) { // Single line - use `a / b / c` selection
+				if (!/\n/.test(content)) { // Single line - use `a / b / c` selection
 					options = content.split(/\s*\/\s*/);
 				} else { // Multi-line - use `a\nb\nc` selection
 					options = _(content)
@@ -123,6 +129,19 @@ module.exports = function(options, finish) {
 					data <= 0.05 ? 'P < 0.05' :
 					'P = ' + _.round(data, 2) // Round to 2 dp (0.248869 => 0.25)
 				);
+			});
+			// }}}
+
+			// User prompting {{{
+			handlebars.registerHelper('input', function(type, description, options) {
+				switch (type) {
+					case 'choice': return '<dfn title="' + description + '">' + options.split(/\s*,\s*/).join(' / ') + '</dfn>';
+					case 'figure': return '<dfn title="' + description + '">FIGURE</dfn>';
+					case 'number': return '<dfn title="' + description + '">NUMBER</dfn>';
+					case 'text': return '<dfn title="' + description + '">TEXT REQUIRED</dfn>';
+					default: throw new Error('Unknown input type "' + type + '"');
+				}
+				return '(' + description + ')';
 			});
 			// }}}
 
