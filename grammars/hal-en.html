@@ -35,8 +35,9 @@
 			From NUMBER included studies, NUMBER of studies had extractable data.
 		{{/pick}}
 	</p>
+
 	
-	{{!-- Introduction --}}
+	<h1>Outcomes</h1>
 	<p>
 		{{#ifMultiple analysesAndData.comparison}}
 			{{#pick}}
@@ -209,6 +210,7 @@
 						{{#pick}}
 							We found {{formatNumber study.length}} trials to be relevant to this subgroup
 							There are {{formatNumber study.length}} relevant trials in this subgroup
+							{{formatNumber study.length}} studies reported the number of events
 						{{/pick}}
 					{{/ifMultiple}}
 
@@ -236,7 +238,9 @@
 						{{#pick}}
 							We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}} within this subgroup
 							For this outcome, within this subgroup, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}}
-						{{/pick}}
+							There was evidence that the intervention was clearly beneficial when compared with the control
+							There was evidence that the intervention was clearly beneficial compared to the control
+					{{/pick}}
 					{{/ifValue}}
 					{{#ifValue p 'gte' 0.05}}
 						{{#pick}}
@@ -253,4 +257,13 @@
 		{{/each}}
 
 	{{/each}}
+				
+	<h1>Risk of bias</h1>
+	<p>
+		{{#pick}}
+			NUMBER of included studies were mostly (USER CHOICE: low/unclear/high) risk of bias.
+		{{/pick}}
+		<h1>COMMENT ON RISK OF BIAS DOMAINS WHICH HAVE A LARGE PROPORTION OF UNCLEAR OR HIGH RISK JUDGEMENTS HERE</h1>
+	</p>
+	<h1>INSERT THE RISK OF BIAS FIGURE HERE</h1>
 </body>
