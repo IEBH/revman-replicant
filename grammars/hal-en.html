@@ -10,8 +10,8 @@
 		{{/pick}}
 		{{#pick}}
 			We found NUMBER citations from (additional/other) sources.
-			Through supplementory methods, we identified NUMBER (records/articles...).
-			We identified NUMBER additional (records/articles...) through supplementory methods.
+			Through supplementary methods, we identified NUMBER (records/articles...).
+			We identified NUMBER additional (records/articles...) through supplementary methods.
 		{{/pick}}
 		{{#pick}}
 			The total number of (records/articles...) found was NUMBER.
@@ -36,7 +36,7 @@
 		{{/pick}}
 	</p>
 
-	
+
 	<h1>Outcomes</h1>
 	<p>
 		{{#ifMultiple analysesAndData.comparison}}
@@ -94,7 +94,7 @@
 					The effect estimate could not be calculated.
 					The effect size could not be estimated.
 					An effect estimate could not be calculated.
-					An effect size could not be estimated. 
+					An effect size could not be estimated.
 				{{/ifValue}}
 				{{#ifValue estimable 'undefOr' true}}
 
@@ -104,7 +104,7 @@
 					{{/ifNone}}
 					{{#ifSingle study}}
 						We identified one study relevant to this outcome.
-						We identified one study that provided useable data relevant to this outcome.
+						We identified one study that provided usable data relevant to this outcome.
 						Data relevant to this outcome were reported in one study.
 					{{/ifSingle}}
 					{{#ifMultiple study}}
@@ -135,7 +135,7 @@
 							The data were divided into {{formatNumber subgroup.length}} groups as specified in the protocol.
 							Data were divided into the {{formatNumber subgroup.length}} pre-specified subgroups.
 							We categorised data into {{formatNumber subgroup.length}} subgroups (in keeping with our protocol).
-							There were {{formatNumber subgroup.length}} subgroups, as specified by the protocol. 
+							There were {{formatNumber subgroup.length}} subgroups, as specified by the protocol.
 							We categorised data into {{formatNumber subgroup.length}} subgroups as specified in our protocol.
 							As specified in our protocol, we categorised data into {{formatNumber subgroup.length}} subgroups.
 						{{/pick}}
@@ -172,7 +172,7 @@
 							We found evidence of a clear difference between {{groupLabel1}} and {{groupLabel2}},
 							For this outcome, we found evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}},
 							For this outcome, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}},
-							There was a clear difference in this oucome between {{groupLabel1}} and {{groupLabel2}},
+							There was a clear difference in this outcome between {{groupLabel1}} and {{groupLabel2}},
 						{{/pick}}
 					{{/ifValue}}
 					{{#ifValue p 'gte' 0.05}}
@@ -257,7 +257,7 @@
 		{{/each}}
 
 	{{/each}}
-				
+
 	<h1>Risk of bias</h1>
 	<p>
 		{{#pick}}
