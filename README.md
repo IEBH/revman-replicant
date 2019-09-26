@@ -2,7 +2,7 @@ Revman-Replicant
 ================
 Auto-generate randomized abstract style content from the "Data and Analysis" section of RevMan files.
 
-This project takes in a RevMan file, combines it with a suitable [grammar](./grammar) and returns a HTML page of generated content.
+This project takes in a RevMan file, combines it with a suitable [grammar](./grammars) and returns a HTML page of generated content.
 
 
 **Contents:**
