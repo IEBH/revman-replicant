@@ -70,17 +70,21 @@
 		<h1>{{name}}</h1>
 		<p>
 			{{#ifSingle outcome}}
-				This comparison has a single outcome.
-				There was only a single outcome for this comparison.
-				There was one outcome for this comparison.
-				There was a single outcome for this comparison.
-				This comparison involved a single outcome only.
-				There was one outcome for this comparison.
+				{{#pick}}
+					This comparison has a single outcome.
+					There was only a single outcome for this comparison.
+					There was one outcome for this comparison.
+					There was a single outcome for this comparison.
+					This comparison involved a single outcome only.
+					There was one outcome for this comparison.
+				{{/pick}}
 			{{/ifSingle}}
 			{{#ifMultiple outcome}}
-				This comparison has {{formatNumber outcome.length}} outcomes.
-				There were {{formatNumber outcome.length}} outcome[s] for this comparison.
-				This comparison involved {{formatNumber outcome.length}} outcomes.
+				{{#pick}}
+					This comparison has {{formatNumber outcome.length}} outcomes.
+					There were {{formatNumber outcome.length}} outcome[s] for this comparison.
+					This comparison involved {{formatNumber outcome.length}} outcomes.
+				{{/pick}}
 			{{/ifMultiple}}
 		</p>
 
@@ -90,28 +94,36 @@
 			<h2>{{name}}</h2>
 			<p>
 				{{#ifValue estimable '===' false}}
-					The effect estimate could not be calculated.
-					The effect size could not be estimated.
-					An effect estimate could not be calculated.
-					An effect size could not be estimated.
+					{{#pick}}
+						The effect estimate could not be calculated.
+						The effect size could not be estimated.
+						An effect estimate could not be calculated.
+						An effect size could not be estimated.
+					{{/pick}}
 				{{/ifValue}}
 				{{#ifValue estimable 'undefOr' true}}
 
 					{{#ifNone study}}
-						No studies reported sufficient data for this outcome.
-						No studies provided data relevant to this outcome.
+						{{#pick}}
+							No studies reported sufficient data for this outcome.
+							No studies provided data relevant to this outcome.
+						{{/pick}}
 					{{/ifNone}}
 					{{#ifSingle study}}
-						We identified one study relevant to this outcome.
-						We identified one study that provided usable data relevant to this outcome.
-						Data relevant to this outcome were reported in one study.
+						{{#pick}}
+							We identified one study relevant to this outcome.
+							We identified one study that provided usable data relevant to this outcome.
+							Data relevant to this outcome were reported in one study.
+						{{/pick}}
 					{{/ifSingle}}
 					{{#ifMultiple study}}
-						We identified {{formatNumber studies}} studies relevant to this outcome.
-						For this outcome we identified {{formatNumber studies}} relevant studies.
-						{{formatNumber studies}} studies provided adequate data for this outcome.
-						{{formatNumber studies}} studies provided relevant data for this outcome.
-						We identified {{formatNumber studies}} studies that reported relevant data for this outcome.
+						{{#pick}}
+							We identified {{formatNumber studies}} studies relevant to this outcome.
+							For this outcome we identified {{formatNumber studies}} relevant studies.
+							{{formatNumber studies}} studies provided adequate data for this outcome.
+							{{formatNumber studies}} studies provided relevant data for this outcome.
+							We identified {{formatNumber studies}} studies that reported relevant data for this outcome.
+						{{/pick}}
 					{{/ifMultiple}}
 
 					{{#pick}}
@@ -231,7 +243,7 @@
 							For this outcome, within this subgroup, we did find evidence that {{groupLabel1}} was clearly different in its effects compared with {{groupLabel2}}
 							There was evidence that the intervention was clearly beneficial when compared with the control
 							There was evidence that the intervention was clearly beneficial compared to the control
-					{{/pick}}
+						{{/pick}}
 					{{/ifValue}}
 					{{#ifValue p 'gte' 0.05}}
 						{{#pick}}
