@@ -18,9 +18,31 @@ describe('Replicant - generate abstract for antibiotics-for-sore-throat.rm5', ()
 			grammar: './grammars/hal-en.html',
 		}, (err, res) => {
 			expect(err).to.not.be.ok;
-			expect(res).to.be.a('string');
+
 			fs.writeFileSync(tempPath, res);
 			mlog.log('written output to', tempPath);
+
+			expect(res).to.be.a('string');
+
+			console.log('PHRASES',
+				[
+					/After removing duplicates the number of/,
+					/After removing duplicates the unique number of/,
+					/Removal of duplicates left/,
+					/Removal of duplicates left unique/,
+				].filter(re => re.test(res))
+			);
+
+			expect(
+				[
+					/After removing duplicates the number of/,
+					/After removing duplicates the unique number of/,
+					/Removal of duplicates left (?!unique)/,
+					/Removal of duplicates left unique/,
+				].filter(re => re.test(res))
+			).to.have.lengthOf(1, 'exactly one unique phrase');
+
+
 			done();
 		});
 	});

@@ -45,11 +45,11 @@ module.exports = function(options, finish) {
 				var content = node.fn(this);
 				var options;
 
-				if (!/\n/.test(content)) { // Single line - use `a / b / c` selection
+				if (!/\r?\n/.test(content)) { // Single line - use `a / b / c` selection
 					options = content.split(/\s*\/\s*/);
 				} else { // Multi-line - use `a\nb\nc` selection
 					options = _(content)
-						.split(/\s*\n\s*/)
+						.split(/\s*\r?\n\s*/)
 						.filter()
 						.map(i => _.trim(i))
 						.value();
